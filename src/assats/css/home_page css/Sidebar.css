@@ -1,0 +1,122 @@
+.sidebar {
+	flex: 0.5;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+.sidebar_main {
+	cursor: pointer;
+	text-align: center;
+	height: fit-content;
+	top: 100px;
+	border: 1px solid rgb(221, 220, 220);
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+}
+.sidebar_avatar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 10px 10px 0px 0px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgb(204, 204, 204);
+}
+.sidebar_avatar > h3 {
+	font-size: 20px;
+}
+.sidebar_avatar > h5 {
+	font-size: 14px;
+	color: rgb(99, 99, 99);
+	font-weight: 400;
+}
+
+.sidebar_avatar > img {
+	margin-bottom: -33px;
+	width: 100%;
+	height: 67px;
+	object-fit: fill;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.textclass_1 {
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.sidebar_texts :hover {
+	background-color: whitesmoke;
+}
+.textclass_1 > .text {
+	color: gray;
+	font-weight: 600;
+	font-size: 13px;
+}
+.textclass_1 > .number {
+	color: rgb(38, 55, 207);
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.textclass_2 {
+	color: rgb(56, 56, 56);
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+	flex-direction: row;
+	font-weight: bold;
+	font-size: 13px;
+}
+.sidebar_recent {
+	border: 1px solid #d6d6d6;
+	margin-top: 20px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	position: sticky;
+	top: 70px;
+	cursor: pointer;
+}
+.sidebar_recent > h5 {
+	margin-left: 12px;
+	margin-top: 10px;
+}
+
+.sidebar_recent > div :hover {
+	background-color: whitesmoke;
+}
+
+.recentitembox {
+	display: flex;
+	flex-direction: row;
+	margin-left: 8px;
+}
+
+.recentitembox > span {
+	font-weight: bold;
+	margin-right: 5px;
+}
+.recentitembox > p {
+	color: rgb(139, 139, 139);
+	font-size: 12px;
+}
+.recentitembox > p:hover {
+	color: rgb(87, 87, 87);
+}
+.textclass_2 {
+	border-top: 1px solid rgb(199, 199, 199);
+	padding-top: 10px;
+	margin-bottom: 8px;
+}
+
+.sidebar-user-profile-img img {
+	border-radius: 50%;
+	/* background-color: transparent !important; */
+	height: 72px;
+	width: 72px;
+	border: 3px solid white;
+}

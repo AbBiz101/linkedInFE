@@ -1,0 +1,109 @@
+.wiges_top {
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid rgb(221, 220, 220);
+	margin-bottom: 20px;
+}
+.wiges_bottom {
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid rgb(221, 220, 220);
+	position: sticky;
+	top: 70px;
+}
+
+.head_top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px;
+}
+.head_top > h5 {
+	font-size: 100%;
+	font-weight: 500;
+}
+.head_bottom > h5 {
+	font-size: 100%;
+	font-weight: 400;
+}
+.head_bottom {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.wiges_bottom_listimg {
+	margin-left: 10px;
+	margin-top: 7px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: fill;
+}
+.wiges_bottom_list {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+}
+.wiges_bottom_list_txt > h4 {
+	cursor: pointer;
+	font-size: 100%;
+	font-weight: 600;
+	margin-top: 4px;
+}
+.wiges_bottom_list_txt > p {
+	cursor: pointer;
+	font-size: 90%;
+	font-weight: 200;
+	margin-top: -7px;
+	margin-bottom: 5px;
+}
+.wiges_bottom_list_txt {
+	margin-left: 15px;
+}
+.follow_btn {
+	border: 1px solid rgb(196, 196, 196);
+	background-color: white;
+	border-radius: 25px;
+}
+
+.follow_btn:hover {
+	background-color: rgb(207, 207, 207);
+}
+
+.follow_btn > div {
+	padding: 5px 10px;
+}
+.wiges_onlybottom_list_txt {
+	cursor: pointer;
+	font-size: 90%;
+	font-weight: 200;
+	margin-bottom: 5px;
+	margin-right: 10px;
+}
+.wiges_onlibottom_listimg {
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 5px;
+	min-width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	object-fit: cover;
+}
+.wiges_bottom_listimg {
+	object-fit: cover;
+}
+
+.head_topbotom {
+	margin-left: 10px;
+	cursor: pointer;
+}
+.head_topbotom:hover {
+	background-color: rgb(207, 207, 207);
+}
+
+.i_found_the_container {
+	position: sticky;
+	top: 70px;
+}

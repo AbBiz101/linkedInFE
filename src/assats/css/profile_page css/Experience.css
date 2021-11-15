@@ -1,0 +1,100 @@
+.experience {
+  background-color: white;
+  border: 1px solid rgb(206, 206, 206);
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.experience_biglist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.experience_title {
+  font-size: 160%;
+  color: rgb(126, 126, 126);
+  padding-top: 20px;
+  margin-left: 20px;
+}
+.experience_list > img {
+  margin-left: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 0px;
+}
+.experience_list {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.experience_list_txt {
+  margin-left: 10px;
+}
+.experience_list_txt > h5 {
+  margin-left: 10px;
+  margin-bottom: 3px;
+  font-weight: 500;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+.experience_list_txt > p {
+  margin-left: 10px;
+  font-weight: 200;
+  font-size: 80%;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.experience_list_txt > .text-dark {
+  color: black !important;
+  font-weight: 300;
+}
+.experience_list_txt > p:first-of-type {
+  color: rgb(0, 0, 0);
+}
+
+.experience_list_txt:hover {
+  text-decoration: underline;
+}
+.adding_exp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.profile-button {
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  margin-right: 20px;
+  margin-left: 20px;
+  border: 0px;
+  color: #2d7dcb;
+  cursor: pointer;
+}
+.lolz {
+  padding-top: px;
+}
+
+.experience_title {
+  display: inline;
+}
+
+.experience-button > button {
+  margin-top: 10px;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px;
+  border: 0px;
+  color: #727272;
+  cursor: pointer;
+}
+.experience-button > button:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.experience_biglist > .btns_vertical_edit {
+  padding-right: 15px;
+}

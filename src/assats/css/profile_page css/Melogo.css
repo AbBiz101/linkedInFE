@@ -1,0 +1,29 @@
+.headericons_avatar {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: gray;
+	cursor: pointer;
+}
+
+.headericons_avatar > img {
+	margin-top: 5px;
+	object-fit: fill;
+	height: 25px !important;
+	width: 25px !important;
+
+	border-radius: 30px;
+}
+
+.header_title_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.headericons_avatar:hover {
+	color: black;
+}
+
+.header_title_container > ArrowDropDownIcon {
+	top: -15px;
+}

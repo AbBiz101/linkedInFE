@@ -1,0 +1,83 @@
+.input_form {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+.input_form > div {
+	color: rgb(66, 66, 66);
+	margin-bottom: 20px;
+}
+.from__body {
+	max-height: 700px;
+	overflow-y: scroll;
+}
+.input_description > .mb-3 > textarea {
+	border: 1px solid rgb(170, 170, 170) !important;
+}
+.input_last > h5 {
+	font-weight: 500;
+	font-size: 100%;
+}
+.input_last > h6 {
+	display: inline;
+	font-weight: 400;
+	font-size: 100%;
+	margin-bottom: 20px !important;
+}
+.input_last > button {
+	margin-top: 15px;
+	padding: 5px;
+	border-radius: 20px;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 1px solid #2d7dcb;
+	color: #2d7dcb;
+	cursor: pointer;
+}
+.input_last > button:hover {
+	border: 1px solid #0d5fb1;
+	background-color: rgb(193, 206, 248);
+}
+.input_last > button > h5 {
+	margin: 0px;
+	padding: 0px;
+}
+
+.footer_button > button {
+	border: 0px;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+	padding-top: 10px !important;
+	background-color: #0a66c2;
+	border-radius: 25px;
+}
+.footer_button > button:hover {
+	background-color: #004182;
+}
+.start_date {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.start_date > div {
+	display: flex;
+	flex-direction: column;
+}
+.start_date > div > form > div > div > input {
+	color: gray;
+	border-radius: 10px;
+}
+
+.model_name_input {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 15px;
+}
+
+.react-datepicker__input-container > input[type='text'] {
+	width: 450px;
+	height: 35px;
+	border-radius: 0px;
+	border: 1px solid rgb(175, 175, 175);
+}

@@ -1,0 +1,48 @@
+.modal-content {
+	width: 132%;
+}
+.img-upload-box {
+	position: relative;
+}
+.img-upload-box,
+.img-upload-box-footer,
+.profile-pic-update-body {
+	background-color: #1d2226 !important;
+	border: none;
+}
+
+.img-container > img {
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+}
+
+input[type='file'] {
+	display: none;
+}
+.custom-file-upload {
+	color: white;
+	border-radius: 10px;
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
+	bottom: -70px;
+}
+
+.final_btn__ {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 0px;
+	background-color: #1d2226;
+}
+.img-upload-box-footer {
+	padding: 0px;
+	justify-content: space-evenly;
+}
+
+.final_btn__ :focus {
+	/* background-color: #1d2226 !important; */
+}
+
+/* .final_btn__.final_btn__:onclick */

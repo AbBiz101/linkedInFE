@@ -1,0 +1,98 @@
+.skills_endorsements {
+	background-color: white;
+	border-radius: 10px;
+	margin-top: 20px;
+	border: 1px solid rgb(207, 207, 207);
+}
+
+.endorsements_title {
+	font-size: 160%;
+	color: rgb(126, 126, 126);
+	padding-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.skills_endorsements > button {
+	border-radius: 20px;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 1px solid #2d7dcb;
+	color: #2d7dcb;
+	cursor: pointer;
+}
+.skills-button > button {
+	margin-top: 20px !important;
+	border-radius: 50%;
+	padding: 8px;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 0px;
+	color: #9c9c9c;
+	cursor: pointer;
+}
+.skills-button > :hover {
+	background-color: rgb(230, 230, 230);
+}
+.skills-button > h5 {
+	display: inline;
+	color: rgb(151, 151, 151);
+}
+.skills-button > button {
+	margin-top: 20px !important;
+	border-radius: 50%;
+	padding: 8px;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 0px;
+	color: #9c9c9c;
+	cursor: pointer;
+}
+.skills-button > :hover {
+	background-color: rgb(230, 230, 230);
+}
+.skills_endorsements > button > h5 {
+	margin-bottom: 0px;
+	padding-left: 16px;
+	padding-top: 4px;
+	padding-bottom: 5px;
+	padding-right: 16px;
+}
+.skills_endorsements > button:hover {
+	border: 3px solid #2d7dcb;
+	background-color: #b9cfe6;
+}
+.endorsements_subtitle1 {
+	color: rgb(65, 65, 65);
+	padding-top: 20px;
+	margin-left: 30px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+.endorsements_subtitle2 {
+	font-weight: 400;
+	color: rgb(65, 65, 65);
+	margin-left: 30px;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.endorsements_subtitle2:hover {
+	text-decoration: underline;
+}
+.endorsements_subtitle1:hover {
+	text-decoration: underline;
+}
+
+.skills_endorsements > div:last-of-type {
+	text-align: center;
+	padding-bottom: 7px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+.skills_endorsements > div:last-of-type > h5 {
+	display: inline-block;
+	vertical-align: middle;
+}
+.skills_endorsements > div:last-of-type:hover {
+	background-color: rgb(201, 201, 201);
+}

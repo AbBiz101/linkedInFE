@@ -1,0 +1,21 @@
+.headericons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 20px;
+	color: rgb(141, 135, 135);
+	cursor: pointer;
+}
+.headericons:hover {
+	color: black;
+	text-decoration: underline;
+}
+.header_title {
+	font-size: 12px;
+	font-weight: 400;
+}
+.header_icons {
+	object-fit: contain;
+	height: 25px !important;
+	width: 25px !important;
+}

@@ -1,0 +1,43 @@
+.dashboardlist {
+	background-color: white;
+	margin: 20px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	border: 1px solid rgb(236, 236, 236);
+}
+.dashboardlist > ul > li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid rgb(236, 236, 236);
+	color: #797979;
+	cursor: pointer;
+}
+.dashboardlist > ul li:last-child {
+	border: none;
+}
+.list_text > h4 {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 90%;
+	margin-bottom: 0;
+	color: rgb(82, 82, 82) !important;
+}
+.list_text > p {
+	margin-top: 0px;
+	font-weight: 300;
+	font-size: 100%;
+}
+
+.list_text {
+	padding-left: 20px;
+}
+
+.dashboardlist > ul > li :hover {
+	text-decoration: underline;
+	text-decoration-color: #0b67c2;
+}
+.dashboardlist > ul {
+	margin-bottom: 0px;
+	padding-bottom: 20;
+}

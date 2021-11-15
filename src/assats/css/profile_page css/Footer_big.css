@@ -1,0 +1,73 @@
+.footer_big {
+	margin-bottom: 60px;
+	margin-top: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style-type: none;
+	color: gray;
+}
+.footer_boxs > div {
+	margin-left: 40px;
+	border: 1px solid black;
+	list-style-type: none;
+}
+
+.footer_boxs > div:first-child {
+	margin-left: 0px;
+	border: 1px solid black;
+}
+.footer_box_1 > img {
+	margin-bottom: 15px;
+}
+
+.footer_box_2,
+.footer_box_3,
+.footer_box_4,
+.footer_box_5 {
+	margin-top: 40px;
+}
+
+.footer_box_1 > ui > li {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+.footer_box_2 > ui > li {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+.footer_box_3 > ui > li {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+.footer_box_4 > ui > li {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+.footer_box_5 > ui > li {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+
+.footer_box_1 > p {
+	margin-top: 20px;
+}
+.footer_box_2,
+.footer_box_3,
+.footer_box_4,
+.footer_box_5 > ui > li {
+	padding-bottom: 10px;
+}
+
+.footer_box_4 {
+	display: flex;
+	flex-direction: column;
+}
+.footer_box_44 {
+	display: flex;
+	flex-direction: row;
+}
+
+.bigfootericons {
+	margin-top: 10px;
+}

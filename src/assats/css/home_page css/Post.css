@@ -1,0 +1,83 @@
+.post {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 25px;
+  color: gray;
+}
+
+.post > .poster_header > img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 50px !important;
+  height: 50px !important;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.poster_header {
+  display: flex;
+  flex-direction: row;
+}
+.header_name > h4 {
+  margin-top: 10px;
+  font-size: 100%;
+  font-weight: 600;
+}
+
+.header_name {
+  padding: 12px 0 0 9px;
+}
+.header_name > p {
+  font-size: 85%;
+  font-weight: 200;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.poster_blog {
+  margin: 5px 0 5px 16px;
+  color: black;
+}
+.poster_blog > p {
+  margin: 5 0 5 16 !important;
+}
+
+.poster_icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  align-items: flex-start;
+
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  max-height: auto;
+  overflow: hidden;
+}
+
+/* Here is the three dotted drop down */
+.post-edit {
+  position: absolute;
+  font-weight: 600;
+  right: 9px;
+  top: 8px;
+}
+.post-edit button {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background-color: transparent !important;
+  border: none;
+}
+.post-edit button:hover {
+  background-color: transparent !important;
+}
+.dropdown-menu:hover {
+  background-color: #eeeeee !important;
+}
+/* END of three dot Dropdown */

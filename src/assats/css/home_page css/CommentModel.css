@@ -1,0 +1,20 @@
+.comment_adding_part,
+.comment_adding_img {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.comment_adding_img > div {
+	margin-right: 15px;
+}
+
+.posting_area_commenting {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.posting_area_commenting > .post-input-filed {
+	border: 3px solid #d9d9d9 !important;
+}

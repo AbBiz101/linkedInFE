@@ -1,0 +1,65 @@
+.activity {
+	background-color: white;
+	border: 1ps solid whitesmoke;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.activity_bottom_list {
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
+	align-items: center;
+	margin-bottom: 5px;
+}
+.activity_onlybottom_list_txt > h5 {
+	margin: 0px;
+	margin-left: 10px;
+	font-size: 100%;
+	font-weight: 500;
+	cursor: pointer;
+}
+.activity_onlybottom_list_txt > p {
+	margin-left: 10px;
+	font-weight: 300;
+	font-size: 95%;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.activity > div > h6 {
+	cursor: pointer;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 7px;
+}
+.activity > div > h6:hover {
+	background-color: whitesmoke;
+}
+.activity > div:last-child {
+	border-top: 1px solid rgb(204, 204, 204);
+}
+.activity > h5 {
+	font-size: 160%;
+	color: rgb(126, 126, 126);
+	padding-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+}
+.activity > h6 {
+	font-size: 80%;
+	margin-left: 20px;
+	color: #0b67c2;
+}
+.activity > h6:hover {
+	text-decoration: underline;
+}
+
+.activity_bottom_list > img {
+	width: 65px;
+	height: 65px;
+	border-radius: 0px;
+}
+.activity_onlybottom_list_txt:hover {
+	text-decoration: underline;
+}

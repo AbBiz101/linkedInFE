@@ -1,0 +1,203 @@
+body {
+  background-color: #f3f2ef;
+  overflow-x: hidden;
+}
+/* SIDE CONENT */
+
+.rounded {
+  border-radius: 10px !important;
+  border: 1px solid rgb(221, 220, 220);
+  background-color: #ffffff !important;
+}
+
+/* END SIDE CONTENT  */
+
+.profile-banner {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0px;
+  border-radius: 10px 10px 0px 0px;
+}
+.profile-img {
+  width: 156px;
+  height: 156px;
+  border: 3px solid white;
+  position: absolute;
+  top: 149px;
+}
+a > .profile-img {
+  cursor: pointer;
+}
+.profile-heading-container {
+  background-color: white !important;
+  padding: 1rem 2rem !important;
+  border: 1px solid rgb(221, 220, 220);
+  border-radius: 10px;
+}
+.cover-img-edit-icon {
+  position: absolute;
+  right: 21px;
+  top: 20px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.cover-img-edit-icon > div {
+  position: absolute;
+  right: 2px;
+}
+.profile-img-edit-icon {
+  position: absolute;
+  right: 21px;
+  bottom: 165px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.profile-img-edit-icon:hover {
+  background-color: #f3f2ef;
+}
+.profile-img-edit-icon > div {
+  position: absolute;
+  right: 4px;
+  bottom: 6px;
+}
+
+.current-work-status {
+  padding-top: 3px;
+  line-height: 40px;
+  font-size: smaller;
+}
+.current-Education-status {
+  line-height: 25px;
+  font-size: smaller;
+}
+
+.profile-info {
+  margin-top: 306px;
+  margin-bottom: 10px;
+  color: black;
+  line-height: 13px;
+}
+.profile-user-details {
+  line-height: 13px;
+}
+
+.profile-user-details p {
+  margin-bottom: 10px;
+}
+
+.profile-user-details a {
+  color: #1e70c6;
+  font-size: 14px;
+  line-height: 10px;
+}
+.profile-user-details a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.user-connetions a {
+  color: #1e70c6 !important;
+  font-size: 14px;
+  line-height: 10px;
+}
+
+.btn-two button {
+  border-radius: 1.25rem !important;
+  line-height: 1.2 !important;
+  font-weight: bold !important;
+  color: #717171 !important;
+  background-color: transparent !important;
+  border: 1px solid #717171 !important;
+}
+.btn-three button {
+  border-radius: 1.25rem !important;
+  line-height: 1.2 !important;
+  font-weight: bold !important;
+  color: #717171 !important;
+  background-color: transparent !important;
+  border: 1px solid #717171 !important;
+}
+.btn-one button {
+  border-radius: 1.25rem !important;
+  line-height: 1.2 !important;
+  font-weight: bold !important;
+  color: #717171 !important;
+  background-color: #0a66c2 !important;
+  border: none !important;
+  color: white !important;
+}
+.btn-one button:hover {
+  color: white !important;
+  text-decoration: none;
+  background-color: #004182 !important;
+}
+.btn-two button:hover {
+  color: #212529 !important;
+  text-decoration: none;
+  outline: 2px solid #717171 !important;
+  outline-offset: -2px !important;
+  background-color: #eeeeee !important;
+}
+.btn-three button:hover {
+  color: #212529 !important;
+  text-decoration: none;
+  outline: 2px solid #717171 !important;
+  outline-offset: -2px !important;
+  background-color: #eeeeee !important;
+}
+
+.btn-two-drowpdown {
+  position: absolute;
+  top: 80px;
+  left: 94px;
+  width: 50%;
+  background-color: white;
+  border: 1px solid #ededed;
+  border-radius: 9px;
+}
+.btn-two-drowpdown li {
+  border-bottom: 1px solid #ededed;
+}
+
+.btn-one-drowpdown {
+  position: absolute;
+  top: 80px;
+  left: -1px;
+  width: 40%;
+  background-color: white;
+  border: 1px solid #ededed;
+  border-radius: 9px;
+}
+.btn-one-drowpdown a:hover {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.btn-one-drowpdown div > div:hover {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+.btn-one-drowpdown div > div {
+  padding: 22px 16px 1px 23px;
+  line-height: 19px;
+  text-decoration: none;
+}
+.btn-three-drowpdown {
+  position: absolute;
+  top: 80px;
+  left: 218px;
+  width: 40%;
+  background-color: white;
+  border: 1px solid #ededed;
+  border-radius: 9px;
+}
+.btn-three-drowpdown > div {
+  padding: 23px 16px 11px 23px;
+  line-height: 26px;
+}

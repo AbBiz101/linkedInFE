@@ -1,0 +1,34 @@
+.peope-view-user-card a {
+  color: #212529;
+}
+.peope-view-user-card a:hover {
+  color: #0a66c2;
+}
+.peope-view-user-card {
+  font-size: 16px;
+  line-height: 19pxpx;
+}
+
+.peope-view-user-card img {
+  height: 48px;
+  width: 48px;
+  min-height: auto;
+  min-width: auto;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+}
+.btn-people-view-connect button {
+  border-radius: 1.25rem !important;
+  line-height: 1.2 !important;
+  font-weight: bold !important;
+  color: #717171 !important;
+  background-color: transparent !important;
+  border: 1px solid #717171 !important;
+}
+.btn-people-view-connect button:hover {
+  color: #212529 !important;
+  text-decoration: none;
+  outline: 2px solid #717171 !important;
+  outline-offset: -2px !important;
+  background-color: #eeeeee !important;
+}
