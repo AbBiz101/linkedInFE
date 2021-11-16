@@ -36,6 +36,7 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
             formdata.append("post", image);
 
             const response = await fetch(
+              
 							`https://linkedin-backend-strive.herokuapp.com/posts/${data._id}`,
 							{
 								method: 'POST',

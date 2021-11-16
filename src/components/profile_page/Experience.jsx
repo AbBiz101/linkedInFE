@@ -42,10 +42,11 @@ export default function Experience({ authorized }) {
 
 	//   Getting the exisiting user experience
 	const fetchData = async () => {
-		const id = params.userId === 'me' ? authorized._id : params.userId;
+		const id = params.experienceId === 'me' ? authorized._id : params.userId;
+		
 		try {
 			const response = await fetch(
-				` https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
+				` https://linkedin-backend-strive.herokuapp.com/profile/username=/experience`,
 				{
 					headers: {
 						Authorization: process.env.REACT_APP_API_KEY,
@@ -70,9 +71,11 @@ export default function Experience({ authorized }) {
 
 	//   Getting the exisiting user experience
 	const postExperience = async () => {
+		const id = params.experienceId === 'me' ? authorized._id : params.userId;
+		const username = params.username;
 		try {
 			let responce = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experience/:${experienceId}`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/username=/experience`,
 				{
 					method: 'POST',
 					body: JSON.stringify(experienceData),
@@ -91,7 +94,7 @@ export default function Experience({ authorized }) {
 					formdata.append('experience', image);
 
 					const response = await fetch(
-						`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experience/:${experienceId}/picture`,
+						`https://linkedin-backend-strive.herokuapp.com/profile/username=/experience/:${id}/picture`,
 						{
 							method: 'POST',
 							body: formdata,

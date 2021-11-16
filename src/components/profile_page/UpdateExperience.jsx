@@ -17,9 +17,12 @@ const UpdateExperience = ({
   fetchData,
 }) => {
   const submitUpdateForm = async () => {
+    const id =
+			this.params.experienceId === 'me' ? authorized._id : this.params.experienceId;
+    const username = this.params.username;
     try {
       const response = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experiences/${exp._id}`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experiences/:${id}`,
 				{
 					method: 'PUT',
 					body: JSON.stringify(exp),

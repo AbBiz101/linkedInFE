@@ -93,26 +93,24 @@ export default function Post({ profile, authorized, posts, getdata }) {
 											/>
 										</Dropdown.Toggle>
 										<Dropdown.Menu>
-											{authorized._id === post.user._id && (
+											 
 												<Dropdown.Item
 													onClick={() => {
 														setShow(true);
-														setPostId(post._id);
+														// setPostId(post._id);
 													}}
 												>
 													Edit
 												</Dropdown.Item>
-											)}
-											{authorized._id === post.user._id && (
 												<Dropdown.Item
 													onClick={() => {
 														setShowDelete(true);
-														setPostId(post._id);
+														// setPostId(post._id);
 													}}
 												>
 													Delete
 												</Dropdown.Item>
-											)}
+											
 											<Dropdown.Item>Another action</Dropdown.Item>
 											<Dropdown.Item>Something else</Dropdown.Item>
 										</Dropdown.Menu>
@@ -122,13 +120,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						</div>
 					</div>
 					<div className="poster_header pt-3">
-						<Image src={post.user.image} />
+						{/* <Image src={post.user.image} /> */}
 
 						<div className="header_name">
-							<Link to={`/profile/${post.user._id}`}>
+							{/* <Link to={`/profile/${post.user._id}`}>
 								<h4 className="user_name_hunted">{post.user.name}</h4>
-							</Link>
-							<p className="mt-1">{post.user.title}</p>
+							</Link> */}
+							{/* <p className="mt-1">{post.user.title}</p> */}
 							<p className="mt-1">
 								{postTimer(post.createdAt)}.
 								<PublicOutlinedIcon className="ml-1" fontSize="small" />

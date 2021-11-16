@@ -7,8 +7,10 @@ function ProfileModal({ show, setShow, authorized, fetchUser }) {
 	const [values, setValues] = useState(authorized);
 
 	const handleSubmit = async () => {
+		const username = this.params.username;
 		try {
 			const response = await fetch(
+				
 				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experience`,
 				{
 					method: 'PUT',
