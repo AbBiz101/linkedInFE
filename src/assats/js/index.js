@@ -1,6 +1,7 @@
 export const fetchData = async (query, method) => {
   const myHeaders = new Headers();
-  let url = "https://striveschool-api.herokuapp.com/api/profile/";
+  let url =
+		'https://linkedin-backend-strive.herokuapp.com/profile';
   try {
     console.log("api");
     if (query !== null || query !== undefined) {

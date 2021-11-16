@@ -28,15 +28,15 @@ function ProfileModal({
       formdata.append("post", values);
 
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
-        {
-          method: "POST",
-          body: formdata,
-          headers: {
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				`https://linkedin-backend-strive.herokuapp.com/posts/${postId}`,
+				{
+					method: 'POST',
+					body: formdata,
+					headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
       setShowPostPicture(false);
     } catch (error) {
       console.log(error);

@@ -8,7 +8,6 @@ import ArticleIcon from '@mui/icons-material/Article';
 import Post from './Post';
 import PostModel from './PostModel';
 
-
 export default function Feed({ authorized, profile }) {
 	const [show, setShow] = useState(false);
 
@@ -18,7 +17,7 @@ export default function Feed({ authorized, profile }) {
 	let getdata = async () => {
 		try {
 			const response = await fetch(
-				'https://striveschool-api.herokuapp.com/api/posts/ ',
+				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
 					methode: 'Get',
 					headers: {
@@ -32,6 +31,7 @@ export default function Feed({ authorized, profile }) {
 
 				setPosts(posts);
 				console.log('POSTS========Feed.jsx');
+				console.log(posts);
 			} else {
 				console.log('rr after the fetch');
 			}

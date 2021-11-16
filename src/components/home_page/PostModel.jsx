@@ -18,16 +18,16 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        {
-          method: "POST",
-          body: JSON.stringify({ text: values }),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				'https://linkedin-backend-strive.herokuapp.com/posts',
+				{
+					method: 'POST',
+					body: JSON.stringify({ text: values }),
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
       if (response.ok) {
         let data = await response.json();
         if (image) {
@@ -36,15 +36,15 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
             formdata.append("post", image);
 
             const response = await fetch(
-              `https://striveschool-api.herokuapp.com/api/posts/${data._id}`,
-              {
-                method: "POST",
-                body: formdata,
-                headers: {
-                  Authorization: process.env.REACT_APP_API_KEY,
-                },
-              }
-            );
+							`https://linkedin-backend-strive.herokuapp.com/posts/${data._id}`,
+							{
+								method: 'POST',
+								body: formdata,
+								headers: {
+									Authorization: process.env.REACT_APP_API_KEY,
+								},
+							},
+						);
             if (response) {
               setShow(false);
               getdata();

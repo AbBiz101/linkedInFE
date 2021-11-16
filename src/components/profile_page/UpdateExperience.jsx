@@ -19,16 +19,16 @@ const UpdateExperience = ({
   const submitUpdateForm = async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${authorized._id}/experiences/${exp._id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(exp),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experiences/${exp._id}`,
+				{
+					method: 'PUT',
+					body: JSON.stringify(exp),
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
 
       if (response.ok) {
         fetchData();

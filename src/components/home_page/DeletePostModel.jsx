@@ -6,14 +6,14 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				`https://linkedin-backend-strive.herokuapp.com/profile/${postId}`,
+				{
+					method: 'DELETE',
+					headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
       if (response.ok) {
         setShowDelete(false);
       }

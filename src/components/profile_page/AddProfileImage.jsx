@@ -14,15 +14,15 @@ function AddProfileImage({ picUpdate, setPicUpdate, authorized, fetchUser }) {
       formdata.append("profile", picture);
 
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${authorized._id}/picture`,
-        {
-          method: "POST",
-          body: formdata,
-          headers: {
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				`https://linkedin-backend-strive.herokuapp.com/profile/${authorized._id}/picture`,
+				{
+					method: 'POST',
+					body: formdata,
+					headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
       if (response.ok) {
         setPicUpdate(false);
         fetchUser();
