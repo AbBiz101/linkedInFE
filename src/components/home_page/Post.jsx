@@ -21,28 +21,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [showDelete, setShowDelete] = useState(false);
 
-	
-
-	
-	// const [comment, setComment] = useState('d-none');
-
-
-
-
-
-
-
-	let comment = 'd-none';
-	const classNameToggle = () => {
-		if (comment === 'd-none') {
-			comment = 'd-Block';
-		} else {
-			comment = 'd-none';
-		}
-		console.log(comment);
-	};
-
-
 	const postTimer = (x) => {
 		const postedDateISO = x;
 		const postedDate = new Date(postedDateISO).getTime();
