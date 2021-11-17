@@ -21,20 +21,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [showDelete, setShowDelete] = useState(false);
 
-	
-
-	
-	// const [comment, setComment] = useState('d-none');
-
-	// const classNameToggle = () => {
-	// 	if (comment === 'd-none') {
-	// 		setComment('');
-	// 	} else {
-	// 		setComment('d-none');
-	// 	}
-	// 	console.log(comment);
-	// };
-
 
 
 
@@ -48,6 +34,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		}
 		console.log(comment);
 	};
+
 
 	const postTimer = (x) => {
 		const postedDateISO = x;
@@ -70,17 +57,23 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		return date;
 	};
 
-
 	const [postId, setPostId] = useState();
 
-	
+	const [comment, setComment] = useState('d-none');
+	const classNameToggle = () => {
+		if (comment === 'd-none') {
+			setComment('');
+		} else {
+			setComment('d-none');
+		}
+	};
+	useEffect(() => {}, []);
 
-	
-/* 
+
 	useEffect(() => {
 		getLikes(posts)
 	}, [likes]);
- */
+
 	return (
 		<>
 			<EditpostModel
@@ -155,13 +148,37 @@ export default function Post({ profile, authorized, posts, getdata }) {
 					<div className="img_container">
 						<Image className="img-fluid" src={post.image} />
 					</div>
+
 					<div className="post_likes" >
 					
 					<PostLikes postId={post._id} profile={profile}/>
 				
+
+
+					<div className="post_likes">
+						<PostLikes postId={post._id} />
+
 					</div>
-					
+
 					<CommentModel className={comment} />
+
+
+					<div className="poster_icon">
+						<Postinput Icon={ThumbUpAltIcon} title="Like" />
+						<Postinput
+							Icon={MessageIcon}
+							title="Comment"
+							onClick={() => classNameToggle()}
+						/>
+
+						<button onClick={() => classNameToggle()} />
+						<Postinput Icon={ShareIcon} title="Share" />
+						<Postinput Icon={SendIcon} title="Send" />
+					</div>
+					<div className={comment}>
+						<CommentModel />
+					</div>
+
 				</div>
 			))}
 		</>
