@@ -39,20 +39,26 @@ let getLikes = async (postId) => {
 };
 
 const postAlike = async (postId) => {
-    const userId = this.params.username;
+    const userId = {"user": "61922d744ec449283427a7b2"}
     try {
         const response = await fetch(
             
-            `https://linkedin-backend-strive.herokuapp.com/posts/${postId}/likes`,
+            `https://linkedin-backend-strive.herokuapp.com/posts/61923a56647baba6d235f4a8/likes`,
             {
                 method: 'POST',
                 body: userId ,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: process.env.REACT_APP_API_KEY,
-                },
+                
             },
         );
+
+        // first state-> not liked
+        // you click -> it's liked
+        // click again-> not liked
+        // if is cliked -> false
+        //is not cliked -> true
+
+        // you will have and array with likes, it your userId is the it shows Liked state
+        //if it's not there (array) shows not liked state
         
         console.log(response);
     } catch (error) {
@@ -62,6 +68,7 @@ const postAlike = async (postId) => {
 
 useEffect(() => {
     getLikes(postId.postId);
+    postAlike(postId.postId)
     console.log("searching the user", profile)
 }, [likes]);
 
