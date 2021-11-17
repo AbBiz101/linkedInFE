@@ -141,8 +141,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						<PostLikes postId={post._id} />
 					</div>
 
-					<CommentModel className={comment} />
-
 					<div className="poster_icon">
 						<Postinput Icon={ThumbUpAltIcon} title="Like" />
 						<Postinput

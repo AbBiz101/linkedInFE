@@ -35,10 +35,9 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 			);
 			if (response.ok) {
 				setShowDelete(false);
-				console.log(response);
+				await getpost();
+				setPosts(posts.pop());
 				console.log('Post Deleted');
-				let newPosts = await getpost();
-				console.log(newPosts);
 			}
 		} catch (error) {
 			console.log(error);
@@ -47,7 +46,7 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 
 	useEffect(() => {
 		getpost();
-	}, [posts, showDelete]);
+	}, [showDelete]);
 
 	return (
 		<Modal
