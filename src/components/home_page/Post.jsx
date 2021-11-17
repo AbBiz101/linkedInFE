@@ -125,7 +125,11 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						{/* <Image className="img-fluid" src={post.image} /> */}
+						{post.image === 'empty' ? (
+							<Image className="d-none" />
+						) : (
+							<Image className="img-fluid" src={post.image} />
+						)}
 					</div>
 					<div className="poster_icon">
 						<Postinput Icon={ThumbUpAltIcon} title="Like" />
