@@ -21,28 +21,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [showDelete, setShowDelete] = useState(false);
 
-	
-
-	
-	// const [comment, setComment] = useState('d-none');
-
-
-
-
-
-
-
-	let comment = 'd-none';
-	const classNameToggle = () => {
-		if (comment === 'd-none') {
-			comment = 'd-Block';
-		} else {
-			comment = 'd-none';
-		}
-		console.log(comment);
-	};
-
-
 	const postTimer = (x) => {
 		const postedDateISO = x;
 		const postedDate = new Date(postedDateISO).getTime();
@@ -64,9 +42,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		return date;
 	};
 
-
 	const [postId, setPostId] = useState();
-
 
 	const [comment, setComment] = useState('d-none');
 	const classNameToggle = () => {
@@ -78,9 +54,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 	};
 	useEffect(() => {}, []);
 
-
-	
-/* 
+	/* 
 	useEffect(() => {
 		getLikes(posts)
 	}, [likes]);
@@ -163,12 +137,10 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						)}
 					</div>
 
-					<div className="post_likes" >
-					
-					<PostLikes postId={post._id} />
-				
+					<div className="post_likes">
+						<PostLikes postId={post._id} />
 					</div>
-					
+
 					<CommentModel className={comment} />
 
 					<div className="poster_icon">
@@ -186,7 +158,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 					<div className={comment}>
 						<CommentModel />
 					</div>
-
 				</div>
 			))}
 		</>
