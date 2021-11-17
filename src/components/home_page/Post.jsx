@@ -14,7 +14,7 @@ import { Dropdown, DropdownButton, Button, Image, R } from 'react-bootstrap';
 import { borderBottom } from '@mui/system';
 import PostLikes from './PostLikes';
 
-export default function Post({ profile, authorized, posts, getdata }) {
+export default function Post({ profile, authorized, posts, getdata, setPosts }) {
 	const [show, setShow] = useState(false);
 
 	const [showPostPicture, setShowPostPicture] = useState(false);
@@ -72,6 +72,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 				showDelete={showDelete}
 				setShowDelete={setShowDelete}
 				postId={postId}
+				setPosts={setPosts}
 			/>
 
 			{posts.map((post) => (

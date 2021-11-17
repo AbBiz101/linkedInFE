@@ -82,6 +82,7 @@ export default function Feed({ authorized, profile }) {
 						profile={profile}
 						authorized={authorized}
 						getdata={getdata}
+						setPosts={setPosts}
 					/>
 				</div>
 			</div>

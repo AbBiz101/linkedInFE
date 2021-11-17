@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-function DeletePostModel({ showDelete, setShowDelete, postId }) {
+function DeletePostModel({ showDelete, setShowDelete, postId, setPosts }) {
 	const [values, setValues] = useState({});
-	const [posts, setPosts] = useState([]);
+	// const [posts, setPosts] = useState([]);
 
 	const getpost = async () => {
 		try {
@@ -15,7 +15,10 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 			);
 			if (response.ok) {
 				const data = await response.json();
+
 				let posts = data.reverse().slice(0, 150);
+				console.log('inside get post ===========================');
+				console.log(data.length, data, 'length POSTS inside getPOST');
 				setPosts(posts);
 			} else {
 				console.log('error after the fetch');
@@ -25,6 +28,10 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 		}
 	};
 
+	//first Delete the posts
+	// then retrieved the remaning posts
+	// update the posts state
+
 	const handleSubmit = async () => {
 		try {
 			const response = await fetch(
@@ -33,10 +40,16 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 					method: 'DELETE',
 				},
 			);
+			console.log(
+				response,
+				'res from DELETE =<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,',
+			);
 			if (response.ok) {
+				console.log(
+					'inside response.ok handle submit //////////////////////////////////',
+				);
 				setShowDelete(false);
 				await getpost();
-				setPosts(posts.pop());
 				console.log('Post Deleted');
 			}
 		} catch (error) {
@@ -44,9 +57,10 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 		}
 	};
 
-	useEffect(() => {
-		getpost();
-	}, [showDelete]);
+	// useEffect(() => {
+	// 	console.log('inside use effect lisnening showDelete')
+	// 	getpost();
+	// }, [showDelete]);
 
 	return (
 		<Modal
