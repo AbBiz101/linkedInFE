@@ -18,10 +18,10 @@ export default function Feed({ authorized, profile }) {
 			const response = await fetch(
 				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
-					methode: 'Get',
-					headers: {
-						Authorization: process.env.REACT_APP_API_KEY,
-					},
+					method: 'Get',
+					// headers: {
+					// 	Authorization: process.env.REACT_APP_API_KEY,
+					// },
 				},
 			);
 			if (response.ok) {
