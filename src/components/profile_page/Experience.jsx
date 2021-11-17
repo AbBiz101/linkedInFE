@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import Edu_list from './Edu_list';
-import AddIcon from '@mui/icons-material/Add';
-import { Modal, Button } from 'react-bootstrap';
-import { Image, Form } from 'react-bootstrap';
+import { useParams } from 'react-router';
 import DatePicker from 'react-datepicker';
+import { format, parseISO } from 'date-fns';
+import AddIcon from '@mui/icons-material/Add';
+import { Image, Form } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
+import UpdateExperience from './UpdateExperience';
+import React, { useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import UpdateExperience from './UpdateExperience';
-import { format, parseISO } from 'date-fns';
 
 export default function Experience({ authorized }) {
 	const params = useParams();
-
 	const [experiences, setExperiences] = useState([]);
-
 	const [showUpdateModel, setShowUpdateModel] = useState(false);
-
 	// this is for the update model setting one experience on click as an object
 	const [exp, setExp] = useState(null);
-
 	const [experienceData, setExperienceData] = useState({
 		role: '',
 		company: '',
@@ -31,22 +27,17 @@ export default function Experience({ authorized }) {
 	});
 
 	const [workModel, setWorkModel] = useState(false);
-
 	const [educationModel, setEducationModel] = useState(false);
-
 	const [dateSelected, setDateSelected] = useState(null);
-
 	const [enddateSelected, setEnddateSelected] = useState(null);
-
 	const [style, setStyle] = useState({ display: 'none' });
-
 	//   Getting the exisiting user experience
 	const fetchData = async () => {
 		const id = params.experienceId === 'me' ? authorized._id : params.userId;
-		
+
 		try {
 			const response = await fetch(
-				` https://linkedin-backend-strive.herokuapp.com/profile/username=/experience`,
+				` https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences`,
 				{
 					headers: {
 						Authorization: process.env.REACT_APP_API_KEY,
@@ -75,7 +66,7 @@ export default function Experience({ authorized }) {
 		const username = params.username;
 		try {
 			let responce = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/username=/experience`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences`,
 				{
 					method: 'POST',
 					body: JSON.stringify(experienceData),
@@ -94,7 +85,7 @@ export default function Experience({ authorized }) {
 					formdata.append('experience', image);
 
 					const response = await fetch(
-						`https://linkedin-backend-strive.herokuapp.com/profile/username=/experience/:${id}/picture`,
+						`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences/:expId/picture`,
 						{
 							method: 'POST',
 							body: formdata,

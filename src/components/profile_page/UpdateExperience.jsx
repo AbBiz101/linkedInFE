@@ -22,7 +22,7 @@ const UpdateExperience = ({
     const username = this.params.username;
     try {
       const response = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/${username}/experiences/:${id}`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences/:expId`,
 				{
 					method: 'PUT',
 					body: JSON.stringify(exp),
@@ -46,14 +46,14 @@ const UpdateExperience = ({
   const deleteEx = async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${authorized._id}/experiences/${exp._id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
-        }
-      );
+				`https://striveschool-api.herokuapp.com/api/profile/:username/experiences/:expId`,
+				{
+					method: 'DELETE',
+					headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
+				},
+			);
       if (response.ok) {
         fetchData();
         setShowUpdateModel(false);

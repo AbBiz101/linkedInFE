@@ -6,11 +6,12 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import DescriptionIcon from "@mui/icons-material/Description";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ChatIcon from "@mui/icons-material/Chat";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import Postinput from "./Postinput";
 import Hidden from "@mui/material/Hidden";
+import Postinput from "./Postinput";
+
 function ProfileModal({ show, setShow, authorized, getdata }) {
   const [values, setValues] = useState();
   const [image, setImage] = useState(null);
@@ -37,7 +38,7 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
 
             const response = await fetch(
               
-							`https://linkedin-backend-strive.herokuapp.com/posts/${data._id}`,
+							`https://linkedin-backend-strive.herokuapp.com/posts/${data._id}/picture`,
 							{
 								method: 'POST',
 								body: formdata,
@@ -123,7 +124,7 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
             <label class="file-upload">
               <input
                 type="file"
-                // onChange={(e) => console.log(e.target.files[0])}
+                 //onChange={(e) => console.log(e.target.files[0])}
                 onChange={(e) => setImage(e.target.files[0])}
               />
               <PanoramaIcon fontSize="large" style={{ color: "#666666" }} />
