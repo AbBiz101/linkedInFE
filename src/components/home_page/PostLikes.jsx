@@ -4,11 +4,25 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import SendIcon from '@mui/icons-material/Send';
 import ShareIcon from '@mui/icons-material/Share';
 import MessageIcon from '@mui/icons-material/Message';
+import CommentModel from './CommentModel';
+import { Icon } from '@mui/material';
 
 
 export default function PostLikes (postId, profile) {
 
  const [likes, setLikes] = useState(0);
+
+
+ let comment = 'd-Block';
+ const classNameToggle = () => {
+     if (comment === 'd-none') {
+         comment = 'd-Block';
+         
+     } else {
+         comment = 'd-none';
+     }
+     console.log(comment);
+ };
 
 let getLikes = async (postId) => {
 
@@ -43,7 +57,7 @@ const postAlike = async (postId) => {
     try {
         const response = await fetch(
             
-            `https://linkedin-backend-strive.herokuapp.com/posts/61923a56647baba6d235f4a8/likes`,
+            `https://linkedin-backend-strive.herokuapp.com/posts/${postId}/likes`,
             {
                 method: 'POST',
                 body: userId ,
@@ -51,16 +65,10 @@ const postAlike = async (postId) => {
             },
         );
 
-        // first state-> not liked
-        // you click -> it's liked
-        // click again-> not liked
-        // if is cliked -> false
-        //is not cliked -> true
-
-        // you will have and array with likes, it your userId is the it shows Liked state
-        //if it's not there (array) shows not liked state
         
         console.log(response);
+        console.log(postId)
+        getLikes(postId)
     } catch (error) {
         console.log(error);
     }
@@ -68,30 +76,36 @@ const postAlike = async (postId) => {
 
 useEffect(() => {
     getLikes(postId.postId);
-    postAlike(postId.postId)
+    
     console.log("searching the user", profile)
 }, [likes]);
 
 
 return (
     <>
-    <div>
-    <Postinput Icon={ThumbUpAltIcon} title="" />
-	<p>{likes}</p>
+    <div className="d-inline-flex">
+    <ThumbUpAltIcon style={{width:"15px", marginLeft:"15px", color: "#0000FF"}}/>
+	<p style={{fontSize: "15px", marginLeft:"5px"}}>You and {likes-1} others</p>
     </div>
     <div className="poster_icon" style={{borderTop: "1px solid grey"}}>
 					
-						<div className="button" >
-							<Postinput Icon={ThumbUpAltIcon} title="Like" />
+						<div className="button" onClick={()=>postAlike(postId.postId)}>
+							<Postinput Icon={ThumbUpAltIcon} title="Like"  />
+                            
 						</div>
+                        <div className="button" onClick={()=>classNameToggle()}>
 						<Postinput
 							Icon={MessageIcon}
 							title="Comment"
-							/* onClick={classNameToggle} */
 						/>
+                        </div>
 						<Postinput Icon={ShareIcon} title="Share" />
 						<Postinput Icon={SendIcon} title="Send" />
 					</div>
+                    <div className={comment}>
+						<CommentModel />
+					</div>
+
     </>
 
 )
