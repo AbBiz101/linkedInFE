@@ -1,15 +1,14 @@
-export const fetchData = async (query, method) => {
+export const fetchData = async () => {
 	const myHeaders = new Headers();
 	let url = 'https://linkedin-backend-strive.herokuapp.com/posts';
 
 	try {
 		console.log('api');
-		//  (query !== null || query !== undefined) {
+		 //(query !== null || query !== undefined) {
 		let response = await fetch(url, {
-			method: method,
 			headers: {
-				Authorization: process.env.REACT_APP_API_KEY,
-			},
+			"Content-Type": "application/json",
+          },
 		});
 
 		if (response.ok) {
