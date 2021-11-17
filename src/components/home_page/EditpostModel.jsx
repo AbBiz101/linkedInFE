@@ -4,7 +4,6 @@ import PanoramaIcon from "@mui/icons-material/Panorama";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import { Image, Modal, Button, Form } from "react-bootstrap";
-
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import DescriptionIcon from "@mui/icons-material/Description";
 import PublicRoundedIcon from "@mui/icons-material/PublicRounded";
@@ -23,9 +22,9 @@ function EditpostModel({ show, setShow, authorized, postId, getdata }) {
         `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         {
           method: "GET",
-          headers: {
-            Authorization: process.env.REACT_APP_API_KEY,
-          },
+          // headers: {
+          //   Authorization: process.env.REACT_APP_API_KEY,
+          // },
         }
       );
 
