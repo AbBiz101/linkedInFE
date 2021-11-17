@@ -51,7 +51,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		} else {
 			setComment('d-none');
 		}
-		console.log(comment);
 	};
 	useEffect(() => {}, []);
 
@@ -86,7 +85,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 											<Dropdown.Item
 												onClick={() => {
 													setShow(true);
-													// setPostId(post._id);
+													setPostId(post._id);
 												}}
 											>
 												Edit
@@ -94,7 +93,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 											<Dropdown.Item
 												onClick={() => {
 													setShowDelete(true);
-													// setPostId(post._id);
+													setPostId(post._id);
 												}}
 											>
 												Delete
@@ -109,13 +108,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						</div>
 					</div>
 					<div className="poster_header pt-3">
-						{/* <Image src={post.user.image} /> */}
+						<Image src={post.image} />
 
 						<div className="header_name">
-							{/* <Link to={`/profile/${post.user._id}`}>
-								<h4 className="user_name_hunted">{post.user.name}</h4>
-							</Link> */}
-							{/* <p className="mt-1">{post.user.title}</p> */}
+							<Link to={`/profile/${post._id}`}>
+								<h4 className="user_name_hunted">{post.username}</h4>
+							</Link>
+							<p className="mt-1">{post.username}</p>
 							<p className="mt-1">
 								{postTimer(post.createdAt)}.
 								<PublicOutlinedIcon className="ml-1" fontSize="small" />
@@ -126,7 +125,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						<Image className="img-fluid" src={post.image} />
+						{/* <Image className="img-fluid" src={post.image} /> */}
 					</div>
 					<div className="poster_icon">
 						<Postinput Icon={ThumbUpAltIcon} title="Like" />
@@ -140,7 +139,6 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						<Postinput Icon={ShareIcon} title="Share" />
 						<Postinput Icon={SendIcon} title="Send" />
 					</div>
-
 					<div className={comment}>
 						<CommentModel />
 					</div>

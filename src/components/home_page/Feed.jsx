@@ -19,9 +19,6 @@ export default function Feed({ authorized, profile }) {
 				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
 					method: 'Get',
-					// headers: {
-					// 	Authorization: process.env.REACT_APP_API_KEY,
-					// },
 				},
 			);
 			if (response.ok) {

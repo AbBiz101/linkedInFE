@@ -43,7 +43,6 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
 							{
 								method: 'PUT',
 								body: formdata,
-								
 							},
 						);
 						if (response) {
