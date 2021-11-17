@@ -10,7 +10,9 @@ import MessageIcon from '@mui/icons-material/Message';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
-import { Dropdown, DropdownButton, Button, Image } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Button, Image, R } from 'react-bootstrap';
+import { borderBottom } from '@mui/system';
+import PostLikes from './PostLikes';
 
 export default function Post({ profile, authorized, posts, getdata }) {
 	const [show, setShow] = useState(false);
@@ -19,6 +21,9 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [showDelete, setShowDelete] = useState(false);
 
+	
+
+	
 	// const [comment, setComment] = useState('d-none');
 
 	// const classNameToggle = () => {
@@ -29,6 +34,10 @@ export default function Post({ profile, authorized, posts, getdata }) {
 	// 	}
 	// 	console.log(comment);
 	// };
+
+
+
+
 
 	let comment = 'd-none';
 	const classNameToggle = () => {
@@ -61,10 +70,17 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		return date;
 	};
 
+
 	const [postId, setPostId] = useState();
 
-	useEffect(() => {}, []);
+	
 
+	
+/* 
+	useEffect(() => {
+		getLikes(posts)
+	}, [likes]);
+ */
 	return (
 		<>
 			<EditpostModel
@@ -139,16 +155,12 @@ export default function Post({ profile, authorized, posts, getdata }) {
 					<div className="img_container">
 						<Image className="img-fluid" src={post.image} />
 					</div>
-					<div className="poster_icon">
-						<Postinput Icon={ThumbUpAltIcon} title="Like" />
-						<Postinput
-							Icon={MessageIcon}
-							title="Comment"
-							onClick={classNameToggle}
-						/>
-						<Postinput Icon={ShareIcon} title="Share" />
-						<Postinput Icon={SendIcon} title="Send" />
+					<div className="post_likes" >
+					
+					<PostLikes postId={post._id} />
+				
 					</div>
+					
 					<CommentModel className={comment} />
 				</div>
 			))}
