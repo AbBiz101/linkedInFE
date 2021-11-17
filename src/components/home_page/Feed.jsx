@@ -19,6 +19,7 @@ export default function Feed({ authorized, profile }) {
 				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
 					method: 'Get',
+
 				},
 			);
 			if (response.ok) {

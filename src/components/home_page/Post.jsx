@@ -10,7 +10,9 @@ import MessageIcon from '@mui/icons-material/Message';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
-import { Dropdown, DropdownButton, Button, Image } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Button, Image, R } from 'react-bootstrap';
+import { borderBottom } from '@mui/system';
+import PostLikes from './PostLikes';
 
 export default function Post({ profile, authorized, posts, getdata }) {
 	const [show, setShow] = useState(false);
@@ -19,7 +21,27 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [showDelete, setShowDelete] = useState(false);
 
+	
+
+	
 	// const [comment, setComment] = useState('d-none');
+
+
+
+
+
+
+
+	let comment = 'd-none';
+	const classNameToggle = () => {
+		if (comment === 'd-none') {
+			comment = 'd-Block';
+		} else {
+			comment = 'd-none';
+		}
+		console.log(comment);
+	};
+
 
 	const postTimer = (x) => {
 		const postedDateISO = x;
@@ -42,7 +64,9 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		return date;
 	};
 
+
 	const [postId, setPostId] = useState();
+
 
 	const [comment, setComment] = useState('d-none');
 	const classNameToggle = () => {
@@ -54,6 +78,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 	};
 	useEffect(() => {}, []);
 
+
+	
+/* 
+	useEffect(() => {
+		getLikes(posts)
+	}, [likes]);
+ */
 	return (
 		<>
 			<EditpostModel
@@ -131,6 +162,15 @@ export default function Post({ profile, authorized, posts, getdata }) {
 							<Image className="img-fluid" src={post.image} />
 						)}
 					</div>
+
+					<div className="post_likes" >
+					
+					<PostLikes postId={post._id} />
+				
+					</div>
+					
+					<CommentModel className={comment} />
+
 					<div className="poster_icon">
 						<Postinput Icon={ThumbUpAltIcon} title="Like" />
 						<Postinput
@@ -146,6 +186,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 					<div className={comment}>
 						<CommentModel />
 					</div>
+
 				</div>
 			))}
 		</>

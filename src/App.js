@@ -35,12 +35,17 @@ function App() {
 	const [profile, setProfile] = useState(null);
 
 	useEffect(() => {
+		//get Data retrieve user POSTs
+
 		let getData = async () => {
 			let user = await fetchData('me', 'GET');
+			
 			setAuthorized(user);
 			setIsLoading(false);
 		};
 		getData();
+		// needs to retrive the user from the backend getUserData
+		// then put the user obj into the setProfile
 	}, []);
 
 	// console.log({ authorized });
