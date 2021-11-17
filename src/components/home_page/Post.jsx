@@ -26,14 +26,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 	
 	// const [comment, setComment] = useState('d-none');
 
-	// const classNameToggle = () => {
-	// 	if (comment === 'd-none') {
-	// 		setComment('');
-	// 	} else {
-	// 		setComment('d-none');
-	// 	}
-	// 	console.log(comment);
-	// };
+
 
 
 
@@ -48,6 +41,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 		}
 		console.log(comment);
 	};
+
 
 	const postTimer = (x) => {
 		const postedDateISO = x;
@@ -73,7 +67,17 @@ export default function Post({ profile, authorized, posts, getdata }) {
 
 	const [postId, setPostId] = useState();
 
-	
+
+	const [comment, setComment] = useState('d-none');
+	const classNameToggle = () => {
+		if (comment === 'd-none') {
+			setComment('');
+		} else {
+			setComment('d-none');
+		}
+	};
+	useEffect(() => {}, []);
+
 
 	
 /* 
@@ -109,24 +113,23 @@ export default function Post({ profile, authorized, posts, getdata }) {
 											/>
 										</Dropdown.Toggle>
 										<Dropdown.Menu>
-											 
-												<Dropdown.Item
-													onClick={() => {
-														setShow(true);
-														// setPostId(post._id);
-													}}
-												>
-													Edit
-												</Dropdown.Item>
-												<Dropdown.Item
-													onClick={() => {
-														setShowDelete(true);
-														// setPostId(post._id);
-													}}
-												>
-													Delete
-												</Dropdown.Item>
-											
+											<Dropdown.Item
+												onClick={() => {
+													setShow(true);
+													setPostId(post._id);
+												}}
+											>
+												Edit
+											</Dropdown.Item>
+											<Dropdown.Item
+												onClick={() => {
+													setShowDelete(true);
+													setPostId(post._id);
+												}}
+											>
+												Delete
+											</Dropdown.Item>
+
 											<Dropdown.Item>Another action</Dropdown.Item>
 											<Dropdown.Item>Something else</Dropdown.Item>
 										</Dropdown.Menu>
@@ -136,13 +139,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						</div>
 					</div>
 					<div className="poster_header pt-3">
-						{/* <Image src={post.user.image} /> */}
+						<Image src={post.image} />
 
 						<div className="header_name">
-							{/* <Link to={`/profile/${post.user._id}`}>
-								<h4 className="user_name_hunted">{post.user.name}</h4>
-							</Link> */}
-							{/* <p className="mt-1">{post.user.title}</p> */}
+							<Link to={`/profile/${post._id}`}>
+								<h4 className="user_name_hunted">{post.username}</h4>
+							</Link>
+							<p className="mt-1">{post.username}</p>
 							<p className="mt-1">
 								{postTimer(post.createdAt)}.
 								<PublicOutlinedIcon className="ml-1" fontSize="small" />
@@ -153,8 +156,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						<Image className="img-fluid" src={post.image} />
+						{post.image === 'empty' ? (
+							<Image className="d-none" />
+						) : (
+							<Image className="img-fluid" src={post.image} />
+						)}
 					</div>
+
 					<div className="post_likes" >
 					
 					<PostLikes postId={post._id} />
@@ -162,6 +170,23 @@ export default function Post({ profile, authorized, posts, getdata }) {
 					</div>
 					
 					<CommentModel className={comment} />
+
+					<div className="poster_icon">
+						<Postinput Icon={ThumbUpAltIcon} title="Like" />
+						<Postinput
+							Icon={MessageIcon}
+							title="Comment"
+							onClick={() => classNameToggle()}
+						/>
+
+						<button onClick={() => classNameToggle()} />
+						<Postinput Icon={ShareIcon} title="Share" />
+						<Postinput Icon={SendIcon} title="Send" />
+					</div>
+					<div className={comment}>
+						<CommentModel />
+					</div>
+
 				</div>
 			))}
 		</>
