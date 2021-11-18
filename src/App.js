@@ -32,22 +32,33 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
 	const [authorized, setAuthorized] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
-	const [profile, setProfile] = useState(null);
+	const [profile, setProfile] = useState([]);
+
+	const getprof = async () => {
+		try {
+			let newfethc = await fetchData(
+				'https://linkedin-backend-strive.herokuapp.com/profile',
+			);
+			if (newfethc.ok) {
+				const data = await newfethc.json();
+				console.log(data);
+				setProfile(data);
+			}
+		} catch (error) {
+			console.log('app,js----', error);
+		}
+	};
 
 	useEffect(() => {
-		//get Data retrieve user POSTs
-
 		let getData = async () => {
 			let user = await fetchData('me', 'GET');
-			
 			setAuthorized(user);
 			setIsLoading(false);
 		};
+		console.log(profile, authorized, 2222);
 		getData();
-	
 	}, []);
 
-	// console.log({ authorized });
 	return (
 		<div className="App">
 			{authorized && !isLoading && (
@@ -72,7 +83,6 @@ function App() {
 							/>
 						)}
 					/>
-					{/* FOOTER HERE */}
 				</Router>
 			)}
 		</div>

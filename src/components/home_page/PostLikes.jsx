@@ -21,7 +21,7 @@ export default function PostLikes (postId, profile) {
      } else {
          comment = 'd-none';
      }
-     console.log(comment);
+    //  console.log(comment);
  };
 
 let getLikes = async (postId) => {
@@ -40,9 +40,9 @@ let getLikes = async (postId) => {
             const data = await response.json();
             let likes = data
             let numberOfLikes = likes.length
-            console.log(numberOfLikes)
+            // console.log(numberOfLikes)
             setLikes(numberOfLikes);
-            console.log("post likes: ", likes);
+            // console.log("post likes: ", likes);
             
         } else {
             console.log('err after the fetch');
@@ -66,12 +66,14 @@ const postAlike = async (postId) => {
         );
 
         
+
         console.log(response);
         if (response.ok) {
            
             getLikes(postId)
         }
       
+
     } catch (error) {
         console.log(error);
     }
@@ -80,7 +82,7 @@ const postAlike = async (postId) => {
 useEffect(() => {
     getLikes(postId.postId);
     
-    console.log("searching the user", profile)
+    // console.log("searching the user", profile)
 }, [likes]);
 
 

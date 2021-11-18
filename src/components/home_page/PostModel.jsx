@@ -56,6 +56,7 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
 				setShow(false);
 				getdata();
 			}
+			setValues('');
 		} catch (error) {
 			console.log(error);
 		}

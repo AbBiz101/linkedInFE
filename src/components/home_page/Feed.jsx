@@ -20,9 +20,6 @@ export default function Feed({ authorized, profile }) {
 				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
 					methode: 'Get',
-					headers: {
-						Authorization: process.env.REACT_APP_API_KEY,
-					},
 				},
 			);
 			if (response.ok) {
@@ -31,7 +28,7 @@ export default function Feed({ authorized, profile }) {
 
 				setPosts(posts);
 				console.log('POSTS========Feed.jsx');
-				console.log(posts);
+				console.log(profile);
 			} else {
 				console.log('rr after the fetch');
 			}
@@ -86,6 +83,7 @@ export default function Feed({ authorized, profile }) {
 						profile={profile}
 						authorized={authorized}
 						getdata={getdata}
+						setPosts={setPosts}
 					/>
 				</div>
 			</div>

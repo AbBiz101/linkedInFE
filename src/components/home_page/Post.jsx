@@ -14,27 +14,18 @@ import { Dropdown, DropdownButton, Button, Image, R } from 'react-bootstrap';
 import { borderBottom } from '@mui/system';
 import PostLikes from './PostLikes';
 
-export default function Post({ profile, authorized, posts, getdata }) {
+export default function Post({
+	profile,
+	authorized,
+	posts,
+	getdata,
+	setPosts,
+}) {
 	const [show, setShow] = useState(false);
 
 	const [showPostPicture, setShowPostPicture] = useState(false);
 
 	const [showDelete, setShowDelete] = useState(false);
-
-
-
-
-/* 
-	let comment = 'd-none';
-	const classNameToggle = () => {
-		if (comment === 'd-none') {
-			comment = 'd-Block';
-		} else {
-			comment = 'd-none';
-		}
-		console.log(comment);
-	}; */
-
 
 	const postTimer = (x) => {
 		const postedDateISO = x;
@@ -60,6 +51,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 	const [postId, setPostId] = useState();
 
 	const [comment, setComment] = useState('d-none');
+
 	const classNameToggle = () => {
 		if (comment === 'd-none') {
 			setComment('');
@@ -67,15 +59,13 @@ export default function Post({ profile, authorized, posts, getdata }) {
 			setComment('d-none');
 		}
 	};
-	/* useEffect(() => {}, []); */
 
-/* 
+	/* 
 	useEffect(() => {
 		getLikes(posts)
 	}, [likes]); */
 
 	return (
-		
 		<>
 			<EditpostModel
 				show={show}
@@ -88,6 +78,7 @@ export default function Post({ profile, authorized, posts, getdata }) {
 				showDelete={showDelete}
 				setShowDelete={setShowDelete}
 				postId={postId}
+				setPosts={setPosts}
 			/>
 
 			{posts.map((post) => (
@@ -103,24 +94,23 @@ export default function Post({ profile, authorized, posts, getdata }) {
 											/>
 										</Dropdown.Toggle>
 										<Dropdown.Menu>
-											 
-												<Dropdown.Item
-													onClick={() => {
-														setShow(true);
-														// setPostId(post._id);
-													}}
-												>
-													Edit
-												</Dropdown.Item>
-												<Dropdown.Item
-													onClick={() => {
-														setShowDelete(true);
-														// setPostId(post._id);
-													}}
-												>
-													Delete
-												</Dropdown.Item>
-											
+											<Dropdown.Item
+												onClick={() => {
+													setShow(true);
+													 setPostId(post._id);
+												}}
+											>
+												Edit
+											</Dropdown.Item>
+											<Dropdown.Item
+												onClick={() => {
+													setShowDelete(true);
+													setPostId(post._id);
+												}}
+											>
+												Delete
+											</Dropdown.Item>
+
 											<Dropdown.Item>Another action</Dropdown.Item>
 											<Dropdown.Item>Something else</Dropdown.Item>
 										</Dropdown.Menu>
@@ -129,9 +119,10 @@ export default function Post({ profile, authorized, posts, getdata }) {
 							}
 						</div>
 					</div>
+					{/* ========================================*/}
 					<div className="poster_header pt-3">
-						{/* <Image src={post.user.image} /> */}
-
+						<Image src={profile.image} />
+						{console.log(profile)}
 						<div className="header_name">
 							{/* <Link to={`/profile/${post.user._id}`}>
 								<h4 className="user_name_hunted">{post.user.name}</h4>
@@ -143,23 +134,23 @@ export default function Post({ profile, authorized, posts, getdata }) {
 							</p>
 						</div>
 					</div>
+					{/* ==========================================*/}
 					<div className="poster_blog">
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						<Image className="img-fluid" src={post.image} />
+						{post.image === 'empty' ? (
+							<Image className="d-none img-fluid" src={post.image} />
+						) : (
+							<Image className="img-fluid" src={post.image} />
+						)}
 					</div>
 
-					<div className="post_likes" >
-					
-					<PostLikes postId={post._id} profile={profile}/>
-				
-
-                   </div>
-
-
+					<div className="post_likes">
+						<PostLikes postId={post._id} profile={profile} />
+					</div>
 				</div>
 			))}
 		</>
-	)
+	);
 }
