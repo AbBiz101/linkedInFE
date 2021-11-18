@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import { IconButton } from "@material-ui/core";
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import HeaderIcons from '../profile_page/HeaderIcons';
+
 import { Link } from "react-router-dom";
 import { FastRewind } from "@material-ui/icons";
 import './css/FriendRequest.css'
@@ -68,14 +71,22 @@ const acceptFriendRequests = async (id, status) => {
       
       <Dropdown >
         <Dropdown.Toggle className='btn-primary-remove' id="dropdown-basic" >
-        <IconButton className="header_icons" onClick={()=>{
+
+        {/* <HeaderIcons title="My Network" Icon={PeopleAltIcon} onClick={()=>{
             console.log(friendRequests)
-        }}  to={to}>
+        }}  to={to} /> */}
+        		<div className="headericons">
+
+        <IconButton className="correctAligmentConnections " >
                 <Icon className="header_icons" src={Icon} />
             </IconButton>
+            <h5 className="header_title d-none d-md-inline">Connections</h5>
+
+          </div>
         </Dropdown.Toggle>
 
-  <Dropdown.Menu>
+
+  <Dropdown.Menu className="dopdownFix">
    
     { 
    

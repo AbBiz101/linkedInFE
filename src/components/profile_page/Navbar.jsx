@@ -53,7 +53,6 @@ function Navbar({ authorized }) {
 
 				<div className="header_right">
 					<HeaderIcons to={'/'} title="Home" Icon={HomeIcon} />
-					{/* <HeaderIcons title="My Network" Icon={PeopleAltIcon} /> */}
 					<FriendRequest title="My Network" Icon={PeopleAltIcon} />
 					<HeaderIcons title="Jobs" Icon={BusinessCenterIcon} />
 
