@@ -97,7 +97,7 @@ export default function Post({
 											<Dropdown.Item
 												onClick={() => {
 													setShow(true);
-													// setPostId(post._id);
+													 setPostId(post._id);
 												}}
 											>
 												Edit
@@ -105,7 +105,7 @@ export default function Post({
 											<Dropdown.Item
 												onClick={() => {
 													setShowDelete(true);
-													// setPostId(post._id);
+													setPostId(post._id);
 												}}
 											>
 												Delete

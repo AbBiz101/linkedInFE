@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import PanoramaIcon from '@mui/icons-material/Panorama';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -58,7 +58,7 @@ function EditpostModel({ show, setShow, authorized, postId, getdata }) {
 		}
 	};
 	useEffect(() => {
-		 getPost();
+		getPost();
 	}, [postId]);
 
 	return (
