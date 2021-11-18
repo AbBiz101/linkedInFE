@@ -32,10 +32,12 @@ function FriendRequest({ title, Icon, to }) {
   //   console.log(data)
   // }
  
-const acceptFriendRequests = async (id) => {
+const acceptFriendRequests = async (id, status) => {
     console.log(id)
+
+
     const response = await fetch(`https://linkedin-backend-strive.herokuapp.com/request/${id}`, {
-        method: "PUT",
+        method: status,
         body: JSON.stringify({ status: 'accepted' }),
 
         headers: {
@@ -79,11 +81,13 @@ const acceptFriendRequests = async (id) => {
    
 
         friendRequests.map(request => (
-        <Dropdown.Item href="#/action-3">Request from: {request.userSent.name}
-        <Button variant="" onClick={()=>{}}>Ignore</Button>
+        <Dropdown.Item href="#/action-3"> {request.userSent.name} want to connect with you
+        <Button variant="" className="ignoreButton" onClick={()=>{
+          acceptFriendRequests(request._id, "DELETE")
+        }}>Ignore</Button>
         <Button variant="primary " className=" acceptButton
 " onClick={()=>{
-            acceptFriendRequests(request._id)
+            acceptFriendRequests(request._id, "PUT")
         }}>Accept</Button>
         
         

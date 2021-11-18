@@ -16,5 +16,10 @@
 
 .ignoreButton{
     border-radius: 20px !important;
+    cursor: pointer;
+    border: 1px solid #9c9c9c;
+    margin-left: 1rem;
+
+
     background-color: grey(255, 255, 255);
 }
