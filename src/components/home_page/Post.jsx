@@ -151,7 +151,11 @@ export default function Post({
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						<Image className="img-fluid" src={post.image} />
+						{post.image === 'empty' ? (
+							<Image className="d-none img-fluid" src={post.image} />
+						) : (
+							<Image className="img-fluid" src={post.image} />
+						)}
 					</div>
 
 					<div className="post_likes">
