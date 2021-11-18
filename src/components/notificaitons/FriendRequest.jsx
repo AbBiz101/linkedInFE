@@ -80,10 +80,12 @@ const acceptFriendRequests = async (id) => {
 
         friendRequests.map(request => (
         <Dropdown.Item href="#/action-3">Request from: {request.userSent.name}
-        <Button variant="primary" onClick={()=>{
+        <Button variant="" onClick={()=>{}}>Ignore</Button>
+        <Button variant="primary " className=" acceptButton
+" onClick={()=>{
             acceptFriendRequests(request._id)
         }}>Accept</Button>
-        <Button variant="danger" onClick={()=>{}}>Reject</Button>
+        
         
         </Dropdown.Item>
             

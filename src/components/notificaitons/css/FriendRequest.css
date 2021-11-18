@@ -3,3 +3,18 @@
     background-color: transparent !important;
      border-color: transparent !important;
 }
+
+
+.acceptButton{
+    border-radius: 20px !important;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 1px solid #2d7dcb;
+	color: #2d7dcb;
+	cursor: pointer;
+}
+
+.ignoreButton{
+    border-radius: 20px !important;
+    background-color: grey(255, 255, 255);
+}
