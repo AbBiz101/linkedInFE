@@ -27,17 +27,6 @@ export default function Post({
 
 	const [showDelete, setShowDelete] = useState(false);
 
-	/* 
-	let comment = 'd-none';
-	const classNameToggle = () => {
-		if (comment === 'd-none') {
-			comment = 'd-Block';
-		} else {
-			comment = 'd-none';
-		}
-		console.log(comment);
-	}; */
-
 	const postTimer = (x) => {
 		const postedDateISO = x;
 		const postedDate = new Date(postedDateISO).getTime();
@@ -70,7 +59,6 @@ export default function Post({
 			setComment('d-none');
 		}
 	};
-	/* useEffect(() => {}, []); */
 
 	/* 
 	useEffect(() => {
