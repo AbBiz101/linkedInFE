@@ -60,15 +60,20 @@ const postAlike = async (postId) => {
             `https://linkedin-backend-strive.herokuapp.com/posts/${postId}/likes`,
             {
                 method: 'POST',
-                body: userId ,
+                body: userId,
                 
             },
         );
 
         
-        // console.log(response);
-        // console.log(postId)
-        getLikes(postId)
+
+        console.log(response);
+        if (response.ok) {
+           
+            getLikes(postId)
+        }
+      
+
     } catch (error) {
         console.log(error);
     }
@@ -85,7 +90,7 @@ return (
     <>
     <div className="d-inline-flex">
     <ThumbUpAltIcon style={{width:"15px", marginLeft:"15px", color: "#0000FF"}}/>
-	<p style={{fontSize: "15px", marginLeft:"5px"}}>You and {likes-1} others</p>
+	<p style={{fontSize: "15px", marginLeft:"5px"}}>{likes} likes</p>
     </div>
     <div className="poster_icon" style={{borderTop: "1px solid grey"}}>
 					
@@ -103,7 +108,7 @@ return (
 						<Postinput Icon={SendIcon} title="Send" />
 					</div>
                     <div className={comment}>
-						<CommentModel />
+						<CommentModel postId={postId}/>
 					</div>
 
     </>
