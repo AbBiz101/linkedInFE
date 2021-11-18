@@ -47,7 +47,7 @@ function DeletePostModel({ showDelete, setShowDelete, postId }) {
 
 	useEffect(() => {
 		getpost();
-	}, [posts, showDelete]);
+	}, [/* posts */, showDelete]);
 
 	return (
 		<Modal
