@@ -1,15 +1,16 @@
+import { React, useState, useEffect } from 'react';
+import Melogo from '../profile_page/Melogo';
+import Postinput from './Postinput';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import ArticleIcon from '@mui/icons-material/Article';
 import Post from './Post';
 import PostModel from './PostModel';
-import Postinput from './Postinput';
-import Melogo from '../profile_page/Melogo';
-import { React, useState, useEffect } from 'react';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import ArticleIcon from '@mui/icons-material/Article';
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 export default function Feed({ authorized, profile }) {
 	const [show, setShow] = useState(false);
+
 	const [posts, setPosts] = useState([]);
 
 	// getting all posts
@@ -18,13 +19,16 @@ export default function Feed({ authorized, profile }) {
 			const response = await fetch(
 				'https://linkedin-backend-strive.herokuapp.com/posts ',
 				{
-					method: 'Get',
-
+					methode: 'Get',
+					headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					},
 				},
 			);
 			if (response.ok) {
 				const data = await response.json();
 				let posts = data.reverse().slice(0, 150);
+
 				setPosts(posts);
 				console.log('POSTS========Feed.jsx');
 				console.log(posts);

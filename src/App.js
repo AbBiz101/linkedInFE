@@ -44,8 +44,7 @@ function App() {
 			setIsLoading(false);
 		};
 		getData();
-		// needs to retrive the user from the backend getUserData
-		// then put the user obj into the setProfile
+	
 	}, []);
 
 	// console.log({ authorized });

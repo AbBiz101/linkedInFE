@@ -27,6 +27,17 @@ export default function Post({
 
 	const [showDelete, setShowDelete] = useState(false);
 
+	/* 
+	let comment = 'd-none';
+	const classNameToggle = () => {
+		if (comment === 'd-none') {
+			comment = 'd-Block';
+		} else {
+			comment = 'd-none';
+		}
+		console.log(comment);
+	}; */
+
 	const postTimer = (x) => {
 		const postedDateISO = x;
 		const postedDate = new Date(postedDateISO).getTime();
@@ -51,7 +62,7 @@ export default function Post({
 	const [postId, setPostId] = useState();
 
 	const [comment, setComment] = useState('d-none');
-	
+
 	const classNameToggle = () => {
 		if (comment === 'd-none') {
 			setComment('');
@@ -59,13 +70,13 @@ export default function Post({
 			setComment('d-none');
 		}
 	};
-	useEffect(() => {}, []);
+	/* useEffect(() => {}, []); */
 
 	/* 
 	useEffect(() => {
 		getLikes(posts)
-	}, [likes]);
- */
+	}, [likes]); */
+
 	return (
 		<>
 			<EditpostModel
@@ -98,7 +109,7 @@ export default function Post({
 											<Dropdown.Item
 												onClick={() => {
 													setShow(true);
-													setPostId(post._id);
+													// setPostId(post._id);
 												}}
 											>
 												Edit
@@ -106,7 +117,7 @@ export default function Post({
 											<Dropdown.Item
 												onClick={() => {
 													setShowDelete(true);
-													setPostId(post._id);
+													// setPostId(post._id);
 												}}
 											>
 												Delete
@@ -122,13 +133,13 @@ export default function Post({
 					</div>
 					{/* ========================================*/}
 					<div className="poster_header pt-3">
-						<Image src={post.image} />
+						{/* <Image src={post.user.image} /> */}
 
 						<div className="header_name">
-							<Link to={`/profile/${post._id}`}>
-								<h4 className="user_name_hunted">{post.username}</h4>
-							</Link>
-							<p className="mt-1">{post.username}</p>
+							{/* <Link to={`/profile/${post.user._id}`}>
+								<h4 className="user_name_hunted">{post.user.name}</h4>
+							</Link> */}
+							{/* <p className="mt-1">{post.user.title}</p> */}
 							<p className="mt-1">
 								{postTimer(post.createdAt)}.
 								<PublicOutlinedIcon className="ml-1" fontSize="small" />
@@ -140,31 +151,11 @@ export default function Post({
 						<p>{post.text}</p>
 					</div>
 					<div className="img_container">
-						{post.image === 'empty' ? (
-							<Image className="d-none" />
-						) : (
-							<Image className="img-fluid" src={post.image} />
-						)}
+						<Image className="img-fluid" src={post.image} />
 					</div>
 
 					<div className="post_likes">
-						<PostLikes postId={post._id} />
-					</div>
-
-					<div className="poster_icon">
-						<Postinput Icon={ThumbUpAltIcon} title="Like" />
-						<Postinput
-							Icon={MessageIcon}
-							title="Comment"
-							onClick={() => classNameToggle()}
-						/>
-
-						<button onClick={() => classNameToggle()} />
-						<Postinput Icon={ShareIcon} title="Share" />
-						<Postinput Icon={SendIcon} title="Send" />
-					</div>
-					<div className={comment}>
-						<CommentModel />
+						<PostLikes postId={post._id} profile={profile} />
 					</div>
 				</div>
 			))}
