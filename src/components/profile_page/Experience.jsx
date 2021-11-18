@@ -17,6 +17,7 @@ export default function Experience({ authorized }) {
 	const [showUpdateModel, setShowUpdateModel] = useState(false);
 	// this is for the update model setting one experience on click as an object
 	const [exp, setExp] = useState(null);
+
 	const [experienceData, setExperienceData] = useState({
 		role: '',
 		company: '',
@@ -24,32 +25,30 @@ export default function Experience({ authorized }) {
 		endDate: new Date(),
 		description: '',
 		area: '',
+		username: '',
+		user: '',
 	});
 
 	const [workModel, setWorkModel] = useState(false);
-	const [educationModel, setEducationModel] = useState(false);
 	const [dateSelected, setDateSelected] = useState(null);
-	const [enddateSelected, setEnddateSelected] = useState(null);
 	const [style, setStyle] = useState({ display: 'none' });
+	const [educationModel, setEducationModel] = useState(false);
+	const [enddateSelected, setEnddateSelected] = useState(null);
+
 	//   Getting the exisiting user experience
 	const fetchData = async () => {
 		const id = params.experienceId === 'me' ? authorized._id : params.userId;
 
 		try {
 			const response = await fetch(
-				` https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences`,
-				{
-					headers: {
-						Authorization: process.env.REACT_APP_API_KEY,
-					},
-				},
+				` https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
 			);
 			if (response.ok) {
 				const data = await response.json();
 
-				setExperiences(data);
+				setExperiences(data.allExperience);
 
-				console.log(`exp==================>`);
+				console.log(data.allExperience);
 				// console.log(data);
 			}
 		} catch (error) {
@@ -66,13 +65,12 @@ export default function Experience({ authorized }) {
 		const username = params.username;
 		try {
 			let responce = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
 				{
 					method: 'POST',
 					body: JSON.stringify(experienceData),
 					headers: {
 						'Content-Type': 'application/json',
-						Authorization: process.env.REACT_APP_API_KEY,
 					},
 				},
 			);
@@ -105,6 +103,24 @@ export default function Experience({ authorized }) {
 				}
 			}
 		} catch (error) {}
+	};
+
+	const getEXP = async () => {
+		try {
+			const response = await fetch(
+				` https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences/CSV`,
+			);
+			if (response.ok) {
+				const data = await response.json();
+
+				setExperiences(data.allExperience);
+
+				console.log(data.allExperience);
+				// console.log(data);
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	useEffect(() => {
@@ -299,6 +315,7 @@ export default function Experience({ authorized }) {
 					</Button>
 				</Modal.Footer>
 			</Modal>
+			{/* -----------------------------> */}
 
 			{/* ------Education_model--------> */}
 			<Modal
@@ -414,10 +431,13 @@ export default function Experience({ authorized }) {
 					</Button>
 				</Modal.Footer>
 			</Modal>
-
+			{/* -----------------------------> */}
 			<div className="adding_exp">
 				<h5 className="experience_title">Experience</h5>
 				<div className="experience-button">
+					<button onClick={() => getEXP()}>
+						<p>Get All Experiences</p>
+					</button>
 					<button onClick={() => setWorkModel(true)}>
 						<AddIcon fontSize="large" />
 					</button>
@@ -434,18 +454,21 @@ export default function Experience({ authorized }) {
 					className="experience_biglist"
 				>
 					<div className="experience_list">
-						<Image
-							className="img-fluid wiges_onlibottom_listimg"
-							src={experience.image}
-						/>
-
+						{experience.image === '' ? (
+							<Image className="d-none" src={experience.image} />
+						) : (
+							<Image
+								className="img-fluid wiges_onlibottom_listimg"
+								src={experience.image}
+							/>
+						)}
 						<div className="experience_list_txt">
 							<h5>{experience.role}</h5>
 							<p className="text-dark">{experience.company}</p>
-							<p className="text-muted">
+							{/* <p className="text-muted">
 								{format(parseISO(experience.startDate), 'MMM yyyy')} -{' '}
 								{format(parseISO(experience.endDate), 'MMM yyyy')}
-							</p>
+							</p> */}
 							<p>
 								<small>{experience.description}</small>
 							</p>
@@ -464,15 +487,16 @@ export default function Experience({ authorized }) {
 							fontSize="large"
 							style={style}
 						/>
-						{/* <ReorderIcon
-              onClick={() => setWorkModel(true)}
-              fontSize="large"
-              style={style}
-            /> */}
+						<ReorderIcon
+							onClick={() => setWorkModel(true)}
+							fontSize="large"
+							style={style}
+						/>
 					</div>
 				</div>
 			))}
-			<div className="edu_list">
+
+			{/* <div className="edu_list">
 				<div className="adding_edu">
 					<h5 className="edu_list_title">Education</h5>
 					<div className="education-button">
@@ -480,7 +504,7 @@ export default function Experience({ authorized }) {
 					</div>
 				</div>
 				<Edu_list />
-			</div>
+			</div> */}
 		</div>
 	);
 }

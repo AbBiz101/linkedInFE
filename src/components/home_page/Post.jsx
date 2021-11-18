@@ -14,7 +14,13 @@ import { Dropdown, DropdownButton, Button, Image, R } from 'react-bootstrap';
 import { borderBottom } from '@mui/system';
 import PostLikes from './PostLikes';
 
-export default function Post({ profile, authorized, posts, getdata, setPosts }) {
+export default function Post({
+	profile,
+	authorized,
+	posts,
+	getdata,
+	setPosts,
+}) {
 	const [show, setShow] = useState(false);
 
 	const [showPostPicture, setShowPostPicture] = useState(false);
@@ -45,6 +51,7 @@ export default function Post({ profile, authorized, posts, getdata, setPosts }) 
 	const [postId, setPostId] = useState();
 
 	const [comment, setComment] = useState('d-none');
+	
 	const classNameToggle = () => {
 		if (comment === 'd-none') {
 			setComment('');
@@ -113,6 +120,7 @@ export default function Post({ profile, authorized, posts, getdata, setPosts }) 
 							}
 						</div>
 					</div>
+					{/* ========================================*/}
 					<div className="poster_header pt-3">
 						<Image src={post.image} />
 
@@ -127,6 +135,7 @@ export default function Post({ profile, authorized, posts, getdata, setPosts }) 
 							</p>
 						</div>
 					</div>
+					{/* ==========================================*/}
 					<div className="poster_blog">
 						<p>{post.text}</p>
 					</div>
