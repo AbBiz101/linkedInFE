@@ -1,0 +1,36 @@
+.btn-primary-remove {
+    color: transparent !important;; 
+    background-color: transparent !important;
+     border-color: transparent !important;
+     margin-bottom: 0px;
+     padding-bottom: 0px;
+}
+
+
+.acceptButton{
+    border-radius: 20px !important;
+	background-color: rgb(255, 255, 255);
+	margin-left: 20px;
+	border: 1px solid #2d7dcb;
+	color: #2d7dcb;
+	cursor: pointer;
+}
+
+.ignoreButton{
+    border-radius: 20px !important;
+    cursor: pointer;
+    border: 1px solid #9c9c9c;
+    margin-left: 1rem;
+
+
+    background-color: grey(255, 255, 255);
+}
+
+.correctAligmentConnections{
+    padding-bottom: 0px !important;
+    
+}
+
+.dopdownFix{
+    margin-top: -20px;
+}

@@ -18,3 +18,32 @@
 .posting_area_commenting > .post-input-filed {
 	border: 3px solid #d9d9d9 !important;
 }
+
+.comments {
+	display: flex;
+	flex-direction: row;
+	padding-left: 30px;
+	padding-right: 20px;
+}
+
+.userComments {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.cmt {
+
+	margin-left: 40px;
+	background-color: rgba(224, 222, 222, 0.692);
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+	color: black;
+}
+
+.comment-btn:hover{
+	text-decoration: underline;
+	cursor: pointer;
+	
+}

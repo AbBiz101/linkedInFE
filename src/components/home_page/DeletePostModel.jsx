@@ -62,6 +62,7 @@ function DeletePostModel({ showDelete, setShowDelete, postId, setPosts }) {
 	// 	getpost();
 	// }, [showDelete]);
 
+
 	return (
 		<Modal
 			dialogClassName="delete_model"

@@ -81,3 +81,15 @@
   background-color: #eeeeee !important;
 }
 /* END of three dot Dropdown */
+.comment-edit {
+  
+  font-weight: 600;
+ 
+}
+.comment-edit button {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background-color: transparent !important;
+  border: none;
+}
