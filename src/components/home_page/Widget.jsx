@@ -22,8 +22,8 @@ export default function Widget() {
 				const data = await response.json();
 				let req = data.slice(0, 3);
 				setUserdata(req);
-				// console.log('POSTSlol======');
-				// console.log(req);
+				console.log('POSTSlol======');
+				console.log(req);
 				setIsLoading(false);
 			} else {
 				console.log('rr after the fetch');
