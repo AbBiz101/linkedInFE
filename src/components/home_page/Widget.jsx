@@ -2,12 +2,41 @@ import React from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Hidden from '@mui/material/Hidden';
-
+import { useState, useEffect } from 'react';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Widget_ppl from './Widget_ppl';
 import Widget_ad from './Widget_ad';
 import Footer from './Footer';
 export default function Widget() {
+	const [isLoading, setIsLoading] = useState(true);
+	const [userdata, setUserdata] = useState([]);
+	let getdata = async () => {
+		try {
+			const response = await fetch(
+				'https://linkedin-backend-strive.herokuapp.com/profile ',
+				{
+					method: 'Get',
+				},
+			);
+			if (response.ok) {
+				const data = await response.json();
+				let req = data.slice(0, 3);
+				setUserdata(req);
+				console.log('POSTSlol======');
+				console.log(req);
+				setIsLoading(false);
+			} else {
+				console.log('rr after the fetch');
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getdata();
+	}, []);
+
 	return (
 		<Hidden mdDown>
 			<div className="wiges">
@@ -17,9 +46,7 @@ export default function Widget() {
 						<AddBoxIcon />
 					</div>
 
-					<Widget_ppl />
-					<Widget_ppl />
-					<Widget_ppl />
+					{!isLoading && userdata.map((user) => <Widget_ppl props={user} />)}
 
 					<div className="head_topbotom">
 						<h6>
