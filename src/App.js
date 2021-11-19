@@ -55,7 +55,7 @@ function App() {
 			setAuthorized(user);
 			setIsLoading(false);
 		};
-		console.log(profile, authorized, 2222);
+		console.log(profile, 2222);
 		getData();
 	}, []);
 

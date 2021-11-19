@@ -21,11 +21,11 @@ const Aside = () => {
       setUserData(data);
       setIsLoading(false);
 
-      console.log("Aside ---------------------");
-      console.log(userData);
+      // console.log("Aside ---------------------");
+      // console.log(userData);
     };
     getData();
-    console.log(userData);
+    // console.log(userData);
   }, []);
 
   return (
