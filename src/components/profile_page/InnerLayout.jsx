@@ -28,7 +28,7 @@ const InnerLayout = ({ authorized, setProfile, profile }) => {
     fetchUser();
   }, [params.userId]);
 
-  console.log({ profile });
+  // console.log({ profile });
 
   return (
     <>

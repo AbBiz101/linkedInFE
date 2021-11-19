@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Widget_ppl(user) {
 	useEffect(() => {
-		console.log(user);
+		// console.log(user);
 	}, []);
 	return (
 		<div className="wiges_bottom_list">
