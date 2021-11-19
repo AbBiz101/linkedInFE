@@ -41,14 +41,12 @@ export default function Experience({ authorized }) {
 
 		try {
 			const response = await fetch(
-				` https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
+				` https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences`,
 			);
 			if (response.ok) {
 				const data = await response.json();
-
 				setExperiences(data.allExperience);
-
-				console.log(data.allExperience);
+				// console.log(data.allExperience);
 				// console.log(data);
 			}
 		} catch (error) {
@@ -65,7 +63,7 @@ export default function Experience({ authorized }) {
 		const username = params.username;
 		try {
 			let responce = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences`,
 				{
 					method: 'POST',
 					body: JSON.stringify(experienceData),
@@ -77,19 +75,16 @@ export default function Experience({ authorized }) {
 
 			if (responce.ok) {
 				let data = await responce.json();
-				console.log(responce);
+				console.log(data, 'dsadasd');
 				try {
 					let formdata = new FormData();
-					formdata.append('experience', image);
+					formdata.append('profilePic', image);
 
 					const response = await fetch(
-						`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences/:expId/picture`,
+						`https://linkedin-backend-strive.herokuapp.com/experience/${data}/picture`,
 						{
-							method: 'POST',
+							method: 'PUT',
 							body: formdata,
-							headers: {
-								Authorization: process.env.REACT_APP_API_KEY,
-							},
 						},
 					);
 					console.log(`before the imagepost`);
@@ -105,26 +100,25 @@ export default function Experience({ authorized }) {
 		} catch (error) {}
 	};
 
-	const getEXP = async () => {
-		try {
-			const response = await fetch(
-				` https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences/CSV`,
-			);
-			if (response.ok) {
-				const data = await response.json();
-
-				setExperiences(data.allExperience);
-
-				console.log(data.allExperience);
-				// console.log(data);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const getEXP = async () => {
+	// try {
+	// 	const response = await (
+	// 		`https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences/CSV`,
+	// 	);
+	// 	if (response.ok) {
+	// 		const data = await response.json();
+	// 		setExperiences(data.allExperience);
+	// 		console.log(data.allExperience);
+	// 		console.log(data);
+	// 	}
+	// } catch (error) {
+	// 	console.log(error);
+	// }
+	// };
 
 	useEffect(() => {
 		fetchData();
+		// console.log(params, 'PARAMAS ARE HERE ');
 	}, [params.userId]);
 
 	return (
@@ -435,8 +429,12 @@ export default function Experience({ authorized }) {
 			<div className="adding_exp">
 				<h5 className="experience_title">Experience</h5>
 				<div className="experience-button">
-					<button onClick={() => getEXP()}>
-						<p>Get All Experiences</p>
+					<button>
+						<p>
+							<a href="https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences/CSV">
+								Get All Experiences
+							</a>
+						</p>
 					</button>
 					<button onClick={() => setWorkModel(true)}>
 						<AddIcon fontSize="large" />

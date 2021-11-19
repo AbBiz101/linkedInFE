@@ -1,23 +1,24 @@
-import { Avatar } from "@material-ui/core";
-import React from "react";
-import TurnedInIcon from "@mui/icons-material/TurnedIn";
-import AssistantPhotoIcon from "@mui/icons-material/AssistantPhoto";
-import Hidden from "@mui/material/Hidden";
-import { Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Avatar } from '@material-ui/core';
+import React from 'react';
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
+import AssistantPhotoIcon from '@mui/icons-material/AssistantPhoto';
+import Hidden from '@mui/material/Hidden';
+import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export default function Sidebar({ authorized }) {
-  const recentitem = (text) => (
-    <div className="recentitembox">
-      <span className="recentitem_#">#</span>
-      <p className="recentitem_p">{text}</p>
-    </div>
-  );
+export default function Sidebar({ authorized, profile }) {
+	const recentitem = (text) => (
+		<div className="recentitembox">
+			<span className="recentitem_#">#</span>
+			<p className="recentitem_p">{text}</p>
+		</div>
+	);
 
-  return (
+	return (
 		<div className="sidebar">
 			<div className="sidebar_main">
 				<div className="sidebar_avatar">
+					{console.log(authorized, '-------', profile)}
 					<Image
 						className="img-fluid"
 						src="https://ischool.uw.edu/sites/default/files/2017-08/george_header.jpg"
@@ -29,7 +30,7 @@ export default function Sidebar({ authorized }) {
 						<h3 className="h3user_name_hunted">{authorized.name}</h3>
 					</Link>
 
-					<h5>{authorized.title}</h5>
+					<h5>{profile.title}</h5>
 				</div>
 
 				<div className="sidebar_texts">

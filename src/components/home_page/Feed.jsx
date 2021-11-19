@@ -78,15 +78,13 @@ export default function Feed({ authorized, profile }) {
 				</div>
 
 				<div className="postfeed">
-					{posts && (
-						<Post
-							posts={posts}
-							profile={profile}
-							authorized={authorized}
-							getdata={getdata}
-							setPosts={setPosts}
-						/>
-					)}
+					<Post
+						posts={posts}
+						profile={profile}
+						authorized={authorized}
+						getdata={getdata}
+						setPosts={setPosts}
+					/>
 				</div>
 			</div>
 		</>
