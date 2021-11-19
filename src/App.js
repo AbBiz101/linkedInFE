@@ -34,13 +34,28 @@ function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [profile, setProfile] = useState([]);
 
+	const getprof = async () => {
+		try {
+			let newfethc = await fetchData(
+				'https://linkedin-backend-strive.herokuapp.com/profile',
+			);
+			if (newfethc.ok) {
+				const data = await newfethc.json();
+				console.log(data);
+				setProfile(data);
+			}
+		} catch (error) {
+			console.log('app,js----', error);
+		}
+	};
+
 	useEffect(() => {
 		let getData = async () => {
-			let user = await fetchData('6194d85aad6c687f678236e2', 'GET');
+			let user = await fetchData('me', 'GET');
 			setAuthorized(user);
 			setIsLoading(false);
 		};
-		// console.log(authorized, 2222);
+		console.log(profile, 2222);
 		getData();
 	}, []);
 

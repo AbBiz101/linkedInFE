@@ -35,7 +35,7 @@ export default function PostLikes(postId, profile) {
 				},
 			);
 			if (response.ok) {
-				// console.log('get response', response);
+				console.log('get response', response);
 				const data = await response.json();
 				const numberComments = data.length;
 				setComments(numberComments);
@@ -88,7 +88,7 @@ export default function PostLikes(postId, profile) {
 				},
 			);
 
-			// console.log(response);
+			console.log(response);
 			if (response.ok) {
 				getLikes(postId);
 			}

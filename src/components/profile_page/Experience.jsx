@@ -41,7 +41,7 @@ export default function Experience({ authorized }) {
 
 		try {
 			const response = await fetch(
-				` https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences`,
+				` https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
 			);
 			if (response.ok) {
 				const data = await response.json();
@@ -63,7 +63,7 @@ export default function Experience({ authorized }) {
 		const username = params.username;
 		try {
 			let responce = await fetch(
-				`https://linkedin-backend-strive.herokuapp.com/profile/Forrest_Williamson/experiences`,
+				`https://linkedin-backend-strive.herokuapp.com/profile/Aiyana54/experiences`,
 				{
 					method: 'POST',
 					body: JSON.stringify(experienceData),
@@ -75,16 +75,19 @@ export default function Experience({ authorized }) {
 
 			if (responce.ok) {
 				let data = await responce.json();
-				console.log(data, 'dsadasd');
+				console.log(responce);
 				try {
 					let formdata = new FormData();
-					formdata.append('profilePic', image);
+					formdata.append('experience', image);
 
 					const response = await fetch(
-						`https://linkedin-backend-strive.herokuapp.com/experience/${data}/picture`,
+						`https://linkedin-backend-strive.herokuapp.com/profile/:username/experiences/:expId/picture`,
 						{
-							method: 'PUT',
+							method: 'POST',
 							body: formdata,
+							headers: {
+								Authorization: process.env.REACT_APP_API_KEY,
+							},
 						},
 					);
 					console.log(`before the imagepost`);
