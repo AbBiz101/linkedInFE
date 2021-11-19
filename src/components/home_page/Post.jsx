@@ -51,6 +51,7 @@ export default function Post({
 	const [postId, setPostId] = useState();
 
 	const [comment, setComment] = useState('d-none');
+	const [loadPosts, setLoadPost] = useState([]);
 
 	const classNameToggle = () => {
 		if (comment === 'd-none') {
@@ -60,10 +61,10 @@ export default function Post({
 		}
 	};
 
-	/* 
 	useEffect(() => {
-		getLikes(posts)
-	}, [likes]); */
+		setLoadPost(posts);
+		console.log('posts loaded', loadPosts);
+	}, []);
 
 	return (
 		<>
@@ -81,76 +82,82 @@ export default function Post({
 				setPosts={setPosts}
 			/>
 
-			{posts.map((post) => (
-				<div className="post" key={post._id}>
-					<div className="position-relative">
-						<div className="post-edit">
-							{
-								<>
-									<Dropdown>
-										<Dropdown.Toggle id="dropdown-basic">
-											<MoreHorizRoundedIcon
-												style={{ color: '#717171', margin: '0px ​0px 0px -8p' }}
-											/>
-										</Dropdown.Toggle>
-										<Dropdown.Menu>
-											<Dropdown.Item
-												onClick={() => {
-													setShow(true);
-													 setPostId(post._id);
-												}}
-											>
-												Edit
-											</Dropdown.Item>
-											<Dropdown.Item
-												onClick={() => {
-													setShowDelete(true);
-													setPostId(post._id);
-												}}
-											>
-												Delete
-											</Dropdown.Item>
+			{loadPosts &&
+				loadPosts.map((post) => (
+					<div className="post" key={post._id}>
+						<div className="position-relative">
+							<div className="post-edit">
+								{
+									<>
+										<Dropdown>
+											<Dropdown.Toggle id="dropdown-basic">
+												<MoreHorizRoundedIcon
+													style={{
+														color: '#717171',
+														margin: '0px ​0px 0px -8p',
+													}}
+												/>
+											</Dropdown.Toggle>
+											<Dropdown.Menu>
+												<Dropdown.Item
+													onClick={() => {
+														setShow(true);
+														setPostId(post._id);
+													}}
+												>
+													Edit
+												</Dropdown.Item>
+												<Dropdown.Item
+													onClick={() => {
+														setShowDelete(true);
+														setPostId(post._id);
+													}}
+												>
+													Delete
+												</Dropdown.Item>
 
-											<Dropdown.Item>Another action</Dropdown.Item>
-											<Dropdown.Item>Something else</Dropdown.Item>
-										</Dropdown.Menu>
-									</Dropdown>
-								</>
-							}
+												<Dropdown.Item>Another action</Dropdown.Item>
+												<Dropdown.Item>Something else</Dropdown.Item>
+											</Dropdown.Menu>
+										</Dropdown>
+									</>
+								}
+							</div>
+						</div>
+						{/* ========================================*/}
+						<div className="poster_header pt-3">
+							<Image src={post.user.image} />
+							<div className="header_name">
+								{/* <Link to={`/profile/post.user._id`}> */}
+								<h4 className="user_name_hunted">
+									{post.user.name}
+									{post.user.surname}
+								</h4>
+								{/* </Link> */}
+								<p className="mt-1">{post.user.title}</p>
+								<p className="mt-1">
+									{postTimer(post.createdAt)}.
+									<PublicOutlinedIcon className="ml-1" fontSize="small" />
+								</p>
+							</div>
+						</div>
+						{/* ==========================================*/}
+						<div className="poster_blog">
+							<p>{post.text}</p>
+						</div>
+						<div className="img_container">
+							{post.image === 'empty' ? (
+								<Image className="d-none img-fluid" src={post.image} />
+							) : (
+								<Image className="img-fluid" src={post.image} />
+							)}
+						</div>
+
+						<div className="post_likes">
+							<PostLikes postId={post._id} profile={profile} />
 						</div>
 					</div>
-					{/* ========================================*/}
-					<div className="poster_header pt-3">
-						<Image src={profile.image} />
-						{console.log(profile)}
-						<div className="header_name">
-							{/* <Link to={`/profile/${post.user._id}`}>
-								<h4 className="user_name_hunted">{post.user.name}</h4>
-							</Link> */}
-							{/* <p className="mt-1">{post.user.title}</p> */}
-							<p className="mt-1">
-								{postTimer(post.createdAt)}.
-								<PublicOutlinedIcon className="ml-1" fontSize="small" />
-							</p>
-						</div>
-					</div>
-					{/* ==========================================*/}
-					<div className="poster_blog">
-						<p>{post.text}</p>
-					</div>
-					<div className="img_container">
-						{post.image === 'empty' ? (
-							<Image className="d-none img-fluid" src={post.image} />
-						) : (
-							<Image className="img-fluid" src={post.image} />
-						)}
-					</div>
-
-					<div className="post_likes">
-						<PostLikes postId={post._id} profile={profile} />
-					</div>
-				</div>
-			))}
+				))}
 		</>
 	);
 }
