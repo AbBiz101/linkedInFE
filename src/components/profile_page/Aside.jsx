@@ -36,11 +36,11 @@ const Aside = () => {
 				isLoading={isLoading}
 				userData={userData}
 			/>
+			{/* <SideContent />
 			<SideContent />
 			<SideContent />
 			<SideContent />
-			<SideContent />
-			<SideContent />
+			<SideContent /> */}
 		</div>
 	);
 };
