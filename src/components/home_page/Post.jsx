@@ -121,7 +121,7 @@ export default function Post({
 					</div>
 					{/* ========================================*/}
 					<div className="poster_header pt-3">
-						<Image src={profile.user.image} />
+						<Image src={post.user.image} />
 						{/* {console.log(profile)} */}
 						<div className="header_name">
 							<h4 className="user_name_hunted">
