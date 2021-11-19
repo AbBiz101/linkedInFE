@@ -11,18 +11,50 @@ import { Icon } from '@mui/material';
 export default function PostLikes (postId, profile) {
 
  const [likes, setLikes] = useState(0);
+ const [comments, setComments] = useState(0)
+ const [isLoading, setIsLoading] = useState(false)
+ const [showComments, setShowComments] = useState(false)
 
 
- let comment = 'd-Block';
- const classNameToggle = () => {
-     if (comment === 'd-none') {
-         comment = 'd-Block';
+ let showComment = 'd-none';
+ const commentsToggle = () => {
+     if (!showComments) {
+         setShowComments(true)
          
      } else {
-         comment = 'd-none';
+         setShowComments(false)
      }
-    //  console.log(comment);
+     console.log(showComments);
  };
+
+ let getComments = async (postId) => {
+    try {
+      const response = await fetch(
+        `https://linkedin-backend-strive.herokuapp.com/posts/${postId}/comments`,
+        {
+          methode: "GET",
+          /* headers: {
+						Authorization: process.env.REACT_APP_API_KEY,
+					}, */
+        }
+      );
+      if (response.ok) {
+        console.log("get response", response);
+        const data = await response.json();
+        const numberComments = data.length
+        setComments(numberComments);
+
+        setIsLoading(false);
+
+        console.log("post comments: ", data);
+      } else {
+        console.log("err after the fetch");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
 let getLikes = async (postId) => {
 
@@ -81,16 +113,22 @@ const postAlike = async (postId) => {
 
 useEffect(() => {
     getLikes(postId.postId);
+    getComments(postId.postId)
     
     // console.log("searching the user", profile)
-}, [likes]);
+}, [likes, comments]);
 
 
 return (
     <>
+    <div className="d-flex flex-row justify-content-between">
     <div className="d-inline-flex">
     <ThumbUpAltIcon style={{width:"15px", marginLeft:"15px", color: "#0000FF"}}/>
 	<p style={{fontSize: "15px", marginLeft:"5px"}}>{likes} likes</p>
+    </div>
+    <div className="button comment-btn" style={{marginRight:"15px"}} onClick={()=>commentsToggle()}>
+        <p style={{fontSize: "15px", marginLeft:"5px"}}>{comments} comments</p>
+    </div>
     </div>
     <div className="poster_icon" style={{borderTop: "1px solid grey"}}>
 					
@@ -98,7 +136,7 @@ return (
 							<Postinput Icon={ThumbUpAltIcon} title="Like"  />
                             
 						</div>
-                        <div className="button" onClick={()=>classNameToggle()}>
+                        <div className="button" >
 						<Postinput
 							Icon={MessageIcon}
 							title="Comment"
@@ -107,8 +145,12 @@ return (
 						<Postinput Icon={ShareIcon} title="Share" />
 						<Postinput Icon={SendIcon} title="Send" />
 					</div>
-                    <div className={comment}>
-						<CommentModel postId={postId}/>
+                    <div>
+
+                        {showComments ?
+						<CommentModel postId={postId} /> : null
+
+                    }
 					</div>
 
     </>
