@@ -22,10 +22,12 @@ function ProfileModal({ show, setShow, authorized, getdata }) {
 				'https://linkedin-backend-strive.herokuapp.com/posts',
 				{
 					method: 'POST',
-					body: JSON.stringify({ text: values, user:"6194d84aad6c687f678236e0" }),
+					body: JSON.stringify({
+						text: values,
+						user: '6194d84aad6c687f678236e0',
+					}),
 					headers: {
 						'Content-Type': 'application/json',
-						Authorization: process.env.REACT_APP_API_KEY,
 					},
 				},
 			);
