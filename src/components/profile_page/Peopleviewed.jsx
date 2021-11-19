@@ -3,13 +3,16 @@ import '../../assats/css/profile_page css/people_view.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
+import { useParams } from 'react-router-dom';
 
 const Peopleviewed = ({ title, userData, isLoading }) => {
+
+	
 	const [userdata, setUserdata] = useState([]);
 	let getdata = async () => {
 		try {
 			const response = await fetch(
-				'https://linkedin-backend-strive.herokuapp.com/profile ',
+				'https://linkedin-backend-strive.herokuapp.com/profile/ ' ,
 				{
 					method: 'Get',
 				},
@@ -19,7 +22,6 @@ const Peopleviewed = ({ title, userData, isLoading }) => {
 				let req = data.reverse().slice(0, 5);
 				setUserdata(req);
 				// console.log('POSTS======');
-				// console.log(req);
 			} else {
 				console.log('rr after the fetch');
 			}
