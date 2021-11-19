@@ -97,7 +97,7 @@ export default function Post({
 											<Dropdown.Item
 												onClick={() => {
 													setShow(true);
-													 setPostId(post._id);
+													setPostId(post._id);
 												}}
 											>
 												Edit
@@ -124,10 +124,12 @@ export default function Post({
 						<Image src={profile.image} />
 						{/* {console.log(profile)} */}
 						<div className="header_name">
+							<h4 className="user_name_hunted">
+								{post.user.name} {post.user.surname}
+							</h4>
 							{/* <Link to={`/profile/${post.user._id}`}>
-								<h4 className="user_name_hunted">{post.user.name}</h4>
 							</Link> */}
-							{/* <p className="mt-1">{post.user.title}</p> */}
+							<p className="mt-1">{post.user.title}</p>
 							<p className="mt-1">
 								{postTimer(post.createdAt)}.
 								<PublicOutlinedIcon className="ml-1" fontSize="small" />
