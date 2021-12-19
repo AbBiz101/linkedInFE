@@ -119,6 +119,7 @@ export default function Post({
 							}
 						</div>
 					</div>
+					
 					{/* ========================================*/}
 					<div className="poster_header pt-3">
 						<Image src={post.user.image} />
